@@ -1,0 +1,34 @@
+{
+	"name": "energy-commissision-backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"dev": "nodemon src/server.js",
+		"build": "webpack",
+		"start": "webpack serve"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@babel/preset-env": "^7.24.7",
+		"@fortawesome/fontawesome-free": "^6.5.2",
+		"babel-loader": "^9.1.3",
+		"date-fns": "^3.6.0",
+		"dotenv": "^16.4.5",
+		"ejs": "^3.1.10",
+		"esm-loader": "^0.1.0",
+		"express": "^4.19.2",
+		"jquery": "^3.7.1",
+		"materialize-css": "^1.0.0",
+		"mysql2": "^3.10.1",
+		"truncate-html": "^1.1.1"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.4",
+		"webpack": "^5.92.1",
+		"webpack-cli": "^5.1.4",
+		"webpack-dev-server": "^5.0.4"
+	}
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Energy Commission of Nigeria</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link
+			rel="stylesheet"
+			href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+		/>
+		<!-- Font Awesome CSS -->
+	</head>
+	<body>
+		<header>
+			<nav>
+				<div class="container">
+					<img src="images/ecn-logo.png" alt="" />
+					<ul>
+						<li>
+							<a href="index"> Home</a>
+						</li>
+						<li id="dropdownIconWide" class="who-we-are nav-item">
+							<a href="index">
+								Who We Are<i
+									style="margin-left: 8px"
+									class="fa fa-chevron-down"
+								></i>
+								<div
+									class="dropdown-menu-strech dropdown"
+									style="display: none"
+								>
+									<ul>
+										<h3>ECN</h3>
+										<li>
+											<a href="#"
+												>ECN at a glance<i
+													style="margin-left: 8px; float: right"
+													class="fa fa-chevron-down"
+												></i
+											></a>
+										</li>
+										<li class="inner-dropdown-menus" id="inner-dropdown-menus">
+											<a href="#"
+												>Leadership<i
+													style="margin-left: 8px; float: right"
+													class="fa fa-chevron-down"
+												></i>
+												<ul id="inner-dropdowns">
+													<li>
+														<a href="#">ECN Act</a>
+													</li>
+													<li><a href="#">Mission & Vision</a></li>
+												</ul></a
+											>
+										</li>
+										<li><a href="#">Energy Research Centers</a></li>
+										<li><a href="#">Internal & External Relationships</a></li>
+									</ul>
+									<!-- <ul>
+										<h3>ECN Departments</h3>
+										<li>
+											<a href="#">Energy Policy, Planning and Analysis</a>
+										</li>
+										<li><a href="#">Energy Information System</a></li>
+										<li><a href="#">Renewable Energy</a></li>
+										<li><a href="#">Nuclear Energy</a></li>
+										<li>
+											<a href="#">Energy Training and Manpower Development</a>
+										</li>
+										<li><a href="#">Energy Management</a></li>
+										<li><a href="#">General Services</a></li>
+										<li><a href="#">Human Resources Management</a></li>
+										<li><a href="#">Finance & Account</a></li>
+										<li><a href="#">Linkages, Research and Consultancy</a></li>
+										<li><a href="#">Legal& Energy Law</a></li>
+									</ul> -->
+								</div></a
+							>
+						</li>
+						<li id="projects" class="projects nav-item-small">
+							<a href="#"
+								>Projects<i
+									style="margin-left: 8px"
+									class="fa fa-chevron-down"
+								></i>
+								<div
+									id="dropdown-menu-projects"
+									class="dropdown-menu dropdown-small"
+									style="display: none"
+								>
+									<ul>
+										<h3>Programmes</h3>
+										<li><a href="">Nigeria 2050 Calculator (NECAL 2050)</a></li>
+										<li><a href="">Energy Policy & Planning</a></li>
+										<li><a href="">Energy Statistics</a></li>
+										<li><a href="">Energy & Rural Development</a></li>
+										<li><a href="">Research & Development Activities</a></li>
+										<li><a href="">Extension Services</a></li>
+										<h3 style="margin-top: 10px">Projects</h3>
+										<ul>
+											<li><a href="">Pilots</a></li>
+										</ul>
+									</ul>
+								</div>
+							</a>
+						</li>
+						<li id="publications" class="projects">
+							<a href="#"
+								>Publications<i
+									style="margin-left: 8px"
+									class="fa fa-chevron-down"
+								></i>
+								<div
+									id="dropdown-menu-publications"
+									class="dropdown-menu"
+									style="display: none"
+								>
+									<ul>
+										<h3>Publications</h3>
+										<li><a href="">Energy Policies,Plans & Laws</a></li>
+										<li><a href="">Papers</a></li>
+										<li><a href="">Journals</a></li>
+										<li><a href="reports.html">Reports</a></li>
+										<li><a href="">Releases</a></li>
+										<li><a href="">Others</a></li>
+									</ul>
+								</div></a
+							>
+						</li>
+						<li>
+							<a href="news">News</a>
+						</li>
+						<li><a href="#">Energy Databank</a></li>
+						<li>
+							<a href="contact.html">Contact Us </a>
+						</li>
+					</ul>
+					<div class="search-container">
+						<i class="fa fa-search"></i>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<section>
+			<div class="container">
+				<div id="hero">
+					<div class="ecn-initiative-1">
+						<div class="caption">
+							<h3>What we do</h3>
+							The Energy Commission of Nigeria @Energygovng is set to shape the
+							future of air conditioning standards in Nigeria, driving
+							advancement in energy efficiency, reducing greenhouse gas
+							emissions, and fostering sustainable economic growth.
+						</div>
+					</div>
+					<div class="latest-news-update">
+						<div class="update-caption">
+							<div></div>
+							<div class="content">
+								Energy Commission of Nigeria in Collaboration with Standard
+								Organisation of Nigeria and United Nations Environment Programme
+								Hosts Technical Committee for the Review of Air Conditioners
+								Minimum Energy Performance <a href="">Learn Moress</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="projects" class="section">
+			<h2>Our Projects</h2>
+			<p>
+				Explore our innovative projects aimed at advancing renewable energy.
+			</p>
+		</section>
+
+		<section id="reports" class="section">
+			<h2>Our Reports</h2>
+			<p>Access our comprehensive reports on energy development in Nigeria.</p>
+			<div id="report-list-home" class="container">
+				<div class="report-view">
+					<img
+						style="
+							background-size: contain;
+							background-repeat: no-repeat;
+							background-position: center;
+						"
+					/>
+
+					<% results.forEach((el)=>{ %>
+					<li><%=el.title %></li>
+
+					<li><%=el.description %></li>
+
+					<li><%=el.authors %></li>
+					<p></p>
+					<% }) %>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			<div class="container footer">
+				<div class="what-we-stand-for">
+					<ul>
+						<h4>Who we are</h4>
+						<a href="">Our Vision</a>
+						<a href="">Our Mission</a>
+						<a href="">2050 Calculator</a>
+						<a href="">Reports and publications</a>
+					</ul>
+				</div>
+				<div class="can-we-help">
+					<h4>Can we help?</h4>
+					<ul>
+						<a href="">Contact us</a>
+						<a href="">vacancies</a>
+					</ul>
+				</div>
+				<div class="connect-us">
+					<h4>Connect with us</h4>
+
+					<div class="social-icons">
+						<!-- Facebook -->
+						<a href="https://www.facebook.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-facebook-f"></i>
+							facebook
+						</a>
+						<!-- Twitter -->
+						<a href="https://www.twitter.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-twitter"></i>
+							twitter
+						</a>
+						<!-- Instagram -->
+						<a href="https://www.instagram.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-instagram"></i>
+							instagram
+						</a>
+						<!-- LinkedIn -->
+						<a href="https://www.linkedin.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-linkedin-in"></i>
+							linkedin
+						</a>
+						<a href="https://www.youtube.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-youtube"></i>
+							youtube
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- <script src="../dist/bundle.js"></script> -->
+		<script src="js/index.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>

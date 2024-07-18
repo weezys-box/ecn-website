@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Energy Commission of Nigeria</title>
+
+		<!-- <link rel="stylesheet" href="css/css-material.css" /> -->
+
+		<link
+			rel="stylesheet"
+			href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+		/>
+		<!-- Font Awesome CSS -->
+
+		<!-- custom css -->
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<header>
+			<%- include('./partials/navbar') %>
+			<section>
+				<div class="container">
+					<div id="hero">
+						<div class="ecn-initiative-1">
+							<!-- <div class="caption">
+								<h3>What we do</h3>
+								The Energy Commission of Nigeria @Energygovng is set to shape
+								the future of air conditioning standards in Nigeria, driving
+								advancement in energy efficiency, reducing greenhouse gas
+								emissions, and fostering sustainable economic growth.
+							</div> -->
+						</div>
+						<div class="latest-news-update">
+							<div class="update-caption">
+								<div></div>
+								<div class="content">
+									Energy Commission of Nigeria in Collaboration with Standard
+									Organisation of Nigeria and United Nations Environment
+									Programme Hosts Technical Committee for the Review of Air
+									Conditioners Minimum Energy Performance
+									<a href="">Learn More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- <section id="projects" class="section container">
+				<h2>Our Projects</h2>
+				<p>
+					Explore our innovative projects aimed at advancing renewable energy.
+				</p>
+			</section> -->
+			<section id="latest-news" class="section container">
+				<h2>Latest Energy News</h2>
+				<p>
+					Get the latest updates and insights on energy developments in Nigeria.
+				</p>
+				<div class="news-latest">
+					<% trimNews.forEach((news)=>{%>
+
+					<div class="news-block">
+						<div
+							class="img"
+							style="background-image: url('<%=news.image_url %>')"
+						></div>
+						<div class="text">
+							<h3><%=news.title %></h3>
+							<p><%=news.content%></p>
+							<a href="">Read</a>
+						</div>
+					</div>
+
+					<%})%>
+				</div>
+			</section>
+
+			<section id="reports" class="section container">
+				<h2>Our Reports</h2>
+				<p>
+					Access our comprehensive reports on energy development in Nigeria.
+				</p>
+				<div class="card-holder">
+					<% results.forEach(res => { %>
+
+					<div class="card">
+						<img src="<%=res.file_url %>" alt="" />
+						<div style="padding: 5px">
+							<h2><%=res.title %></h2>
+							<p><%=res.description %></p>
+							<a href="downloads/<%=res.id%>">Download</a>
+						</div>
+					</div>
+
+					<% }) %>
+				</div>
+			</section>
+		</header>
+		<%- include('./partials/footer') %>
+	</body>
+</html>

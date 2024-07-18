@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Posts Gallore</title>
+	</head>
+	<body>
+		<h1>Posts</h1>
+		<div id="posts"></div>
+		<form id="form">
+			<input name="name" type="text" placeholder="name" />
+			<input name="age" type="text" placeholder="age" />
+			<input type="submit" value="submit" />
+		</form>
+		<script>
+			console.log(123);
+			fetch("/posts")
+				.then((response) => response.json())
+				.then((data) => console.log(data))
+				.catch((e) => {
+					console.log(`Error: ${e} `);
+				});
+
+			const formDatas = document.getElementById("form");
+
+			formDatas.addEventListener("submit", (e) => {
+				e.preventDefault();
+				// const newForm = new FormData(formDatas);
+				// newForm.append("name", form.name.value);
+				// newForm.append("age", form.age.value);
+				// console.log(e.target);
+
+				fetch("/fakePosts", { method: "POST", body: newForm })
+					.then((response) => response.json())
+					.then((data) => cosnole.log(data))
+					.catch((e) => console.log(`error: ${e}`));
+			});
+		</script>
+	</body>
+</html>

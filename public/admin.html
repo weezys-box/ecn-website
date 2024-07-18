@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/styles.css" />
+		<title>Admin Dashboard</title>
+		<link rel="stylesheet" href="./css/admin.css" />
+	</head>
+	<body>
+		<div class="sidebar">
+			<h2>Admin Dashboard</h2>
+			<ul>
+				<li><a href="#dashboard">Dashboard</a></li>
+				<li><a href="#upload">Upload</a></li>
+				<li><a href="#manage">Manage Content</a></li>
+				<li><a href="#users">User Management</a></li>
+				<li><a href="#settings">Settings</a></li>
+			</ul>
+		</div>
+		<div class="main-content">
+			<div id="dashboard">
+				<h2>Dashboard</h2>
+				<!-- Dashboard content here -->
+			</div>
+			<div id="upload">
+				<h2>Upload Content</h2>
+				<form id="upload-form">
+					<label for="title">Title:</label>
+					<input type="text" id="title" name="title" required /><br />
+					<label for="description">Description:</label>
+					<textarea id="description" name="description" required></textarea
+					><br />
+					<label for="file">Upload File:</label>
+					<input type="file" id="file" name="file" required /><br />
+					<button type="submit">Upload</button>
+				</form>
+			</div>
+			<div id="manage">
+				<h2>Manage Content</h2>
+				<!-- Management content here -->
+			</div>
+			<div id="users">
+				<h2>User Management</h2>
+				<!-- User management content here -->
+			</div>
+			<div id="settings">
+				<h2>Settings</h2>
+				<!-- Settings content here -->
+			</div>
+		</div>
+		<script src="/js/script.js"></script>
+	</body>
+</html>
