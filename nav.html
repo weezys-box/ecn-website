@@ -3,142 +3,30 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Drop-down Menu Example</title>
-		<link rel="stylesheet" href="/css/styles.css" />
+		<title>Curved Pattern</title>
 		<style>
-			* {
-				box-sizing: border-box;
-				padding: 0;
-				margin: 0;
-			}
-
-			.pd-2 {
-				padding: 10px;
-			}
-			body {
-				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-					"Liberation Sans", sans-serif;
-				margin: 0;
-				padding: 0;
-				background-color: #ddd;
-				color: #555;
-			}
-			/* Basic styles for the navigation bar and drop-down */
-			nav {
-				background-color: #fff;
-				padding: 10px 0;
-				border-bottom: 1px solid #555;
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-between;
-			}
-
-			nav img {
-				width: 65px;
-				margin-right: 10px;
-			}
-			nav ul {
-				list-style-type: none;
-				padding: 0;
-				margin: 0;
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				justify-content: space-around;
-			}
-			nav ul li {
-				display: inline-block;
+			.curved-div {
+				width: 100%;
+				height: 300px;
+				background-color: #3498db;
 				position: relative;
-				border-radius: 4px;
-				transition: all ease-in-out 0.25s;
+				overflow: hidden;
 			}
-
-			nav ul li:hover {
-				background-color: #f4f6f6;
-			}
-			nav ul li a {
-				color: #555;
-				text-decoration: none;
-				padding: 10px 15px;
-				display: block;
-			}
-			nav ul li .dropdown,
-			nav ul li .submenu {
-				display: none;
+			.curved-div svg {
 				position: absolute;
-				background-color: #fff;
-				padding: 0;
-				list-style-type: none;
-				width: 200px; /* Adjust width as needed */
-				box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
-					rgba(0, 0, 0, 0.23) 0px 6px 6px;
-			}
-			nav ul li .dropdown {
-				top: 100%;
-				left: 0;
-			}
-			nav ul li .submenu {
 				top: 0;
-				left: 0; /* Change to 0 to appear under parent */
-				position: relative;
-			}
-			nav ul li .dropdown li,
-			nav ul li .submenu li {
-				display: block;
-			}
-
-			.no-shadow {
-				box-shadow: none !important;
+				right: 0;
+				bottom: 0;
+				height: 100%;
+				width: 50%;
 			}
 		</style>
 	</head>
 	<body>
-		<nav>
-			<ul>
-				<img src="public/images/ecn-logo.png" alt="" />
-				<li class="pd-2"><a href="#">Home</a></li>
-				<li class="pd-2">
-					<a href="#" class="dropdown-toggle">Who we Are</a>
-					<ul class="dropdown">
-						<li>
-							<a href="#" class="submenu-toggle">Consulting</a>
-							<ul class="submenu no-shadow">
-								<li><a href="#">Business</a></li>
-								<li><a href="#">Technology</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Development</a></li>
-						<li><a href="#">Design</a></li>
-					</ul>
-				</li>
-				<li class="pd-2"><a href="#">Projects</a></li>
-				<li class="pd-2">
-					<a href="#" class="dropdown-toggle">Publications</a>
-					<ul class="dropdown">
-						<li>
-							<a href="#" class="submenu-toggle">About Us</a>
-							<ul class="submenu no-shadow">
-								<li><a href="#">Our Team</a></li>
-								<li><a href="#">Our Story</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Careers</a></li>
-						<li><a href="#">Blog</a></li>
-					</ul>
-				</li>
-				<li class="pd-2"><a href="#">News</a></li>
-				<li class="pd-2"><a href="#">Databank</a></li>
-				<li class="pd-2"><a href="#">Contact Us</a></li>
-			</ul>
-			<div class="search-container">
-				<i class="fa fa-search"></i>
-			</div>
-		</nav>
-
-		<!-- Include jQuery before the closing body tag -->
-		<script src="/public/js/jquery.min.js"></script>
-		<!-- Your custom script -->
-		<script src="/public/js/main.js"></script>
+		<div class="curved-div">
+			<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+				<polygon fill="#3498db" points="0,0 100,0 100,100 0,80" />
+			</svg>
+		</div>
 	</body>
 </html>

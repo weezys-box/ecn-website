@@ -36,4 +36,24 @@ $(document).ready(function () {
 	$(".card-reveal .card-title").on("click", function () {
 		$(this).closest(".card-reveal").slideToggle("slow");
 	});
+
+	// hidden-text js
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+	const hiddenText = document.querySelector(".hidden-text");
+
+	const handleScroll = () => {
+		const rect = hiddenText.getBoundingClientRect();
+		const windowHeight =
+			window.innerHeight || document.documentElement.clientHeight;
+
+		if (rect.top <= windowHeight && rect.bottom >= 0) {
+			hiddenText.classList.add("visible", "animate__fadeInUp");
+			window.removeEventListener("scroll", handleScroll);
+		}
+	};
+
+	window.addEventListener("scroll", handleScroll);
+	handleScroll(); // Initial check in case the element is already visible
 });

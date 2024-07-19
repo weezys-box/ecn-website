@@ -5,9 +5,10 @@
 }
 
 body {
+	background-color: #fff;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Liberation Sans",
 		sans-serif;
-	background-color: #fff;
+
 	color: #555;
 }
 
@@ -368,7 +369,7 @@ footer a {
 .section {
 	padding: 60px 20px;
 	background-color: white;
-	border-top: 1px solid #555;
+	border-top: 1px solid #ddd;
 }
 
 .section h2 {
@@ -513,4 +514,78 @@ h3 {
 .news-block .text h3 {
 	font-size: 16px;
 	margin: 15px 0;
+}
+
+.dropdown-toggle {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#vision {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#vision div {
+	flex: 1;
+
+	height: 150px;
+}
+
+#vision p {
+	font-size: 20px;
+	line-height: 1.5em;
+	color: #555;
+	opacity: 0.3;
+	margin: 0;
+}
+
+#vision h3 {
+	color: #555;
+	font-size: 24px;
+	margin: 0;
+}
+
+.vision-bucket {
+	position: relative;
+	/* border: 1px solid black; */
+}
+
+.div-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.3;
+	background-image: url("../images/vision-background.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* hidden text js */
+.hidden-text {
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+.visible {
+	opacity: 1;
+}
+.animate__fadeInUp {
+	animation: fadeInUp 1s ease-in-out;
+}
+@keyframes fadeInUp {
+	from {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }
