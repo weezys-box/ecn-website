@@ -1,3 +1,6 @@
+const formSearch = document.getElementById("form");
+let input = document.getElementById("input-pub");
+
 $(document).ready(function () {
 	// Handle click to open the dropdown
 	$(".dropdown-toggle").click(function (event) {
@@ -56,4 +59,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	window.addEventListener("scroll", handleScroll);
 	handleScroll(); // Initial check in case the element is already visible
+});
+
+function showSearch() {
+	console.log("show search");
+	let searchPub = document.getElementById("search-publications");
+	const pubInput = document.getElementById("publications-input");
+	searchPub.style.display = "block";
+
+	const deleteIcn = document.getElementById("delete-icon");
+
+	deleteIcn.style.display = "block";
+	pubInput.style.display = "block";
+
+	deleteIcn.addEventListener("click", () => {
+		searchPub.style.display = "none";
+		deleteIcn.style.display = "none";
+		pubInput.style.display = "none";
+	});
+}
+
+deleteIcn.addEventListener("click", () => {
+	console.log(123);
+});
+
+formSearch.addEventListener("submit", (e) => {
+	e.preventDefault();
+	input = input.value.trim();
+
+	try {
+		fetch("/search", {
+			// Replace '/api/endpoint' with your actual API endpoint
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ input }), // Send the input value as a JSON payload
+		});
+	} catch (error) {
+		console.error("Error sending input value:", error);
+	}
 });

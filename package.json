@@ -24,6 +24,7 @@
 		"mysql2": "^3.10.1",
 		"node": "^22.5.0",
 		"npm": "^10.8.2",
+		"sendmail": "^1.6.1",
 		"truncate-html": "^1.1.1"
 	},
 	"devDependencies": {

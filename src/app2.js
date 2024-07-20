@@ -57,6 +57,18 @@ const posts = [
 	{ id: 2, name: "ayodeji", age: 30 },
 ];
 
+//using postgres here - willchange my database schema from mysql to postgresql
+
+// app.get('/test', async (req, res) => {
+// 	try {
+// 	  const result = await pool.query('SELECT * FROM mytable');
+// 	  res.json(result.rows);
+// 	} catch (err) {
+// 	  console.error(err);
+// 	  res.status(500).send('Error connecting to database');
+// 	}
+//   });
+
 app.get("/", (req, res) => {
 	connection.query("SELECT * FROM reports ", (err, results) => {
 		if (err) throw err;
@@ -72,6 +84,7 @@ app.get("/", (req, res) => {
 						content: truncate(trim.content, 100),
 						date_created: trim.date_created,
 						image_url: trim.image_url,
+						id: trim.id,
 					};
 				});
 
@@ -91,7 +104,7 @@ app.get("/news", (req, res) => {
 			const newsBlog = results.map((news) => {
 				return {
 					title: news.title,
-					content: news.content,
+					content: truncate(news.content, 500),
 					id: news.id,
 					date_created: format(news.created_at, "MMMM dd, yyyy"),
 				};
@@ -110,9 +123,10 @@ app.get("/news/:id", (req, res) => {
 		if (err) throw err;
 		console.log(result);
 		let data = result[0];
+		const formatDate = format(result[0].created_at, "MMMM dd, yyyy");
 		// results.forEach((el) => console.log(el));
 
-		res.render("news-view", { data });
+		res.render("news-view", { data, formatDate });
 	});
 });
 

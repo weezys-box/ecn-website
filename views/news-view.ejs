@@ -4,19 +4,41 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Energy Commission of Nigeria</title>
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="/css/style.css" />
 		<link
 			rel="stylesheet"
 			href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
 		/>
 		<!-- Font Awesome CSS -->
 	</head>
-	<body>
+	<body id="body">
+		<i
+			id="delete-icon"
+			class="fa fa-close"
+			style="
+				font-size: 48px;
+				color: black;
+				position: fixed;
+				left: 1250px;
+				top: 30px;
+				z-index: 300;
+				display: none;
+			"
+		></i>
+		<div id="search-publications"></div>
+		<div id="publications-input">
+			<h3>Search our pool of energy publications</h3>
+
+			<form id="form">
+				<input id="input-pub" type="text" />
+			</form>
+		</div>
 		<header>
 			<%- include('./partials/navbar') %>
-			<div id="news-view">
+			<div id="news-view" class="container">
 				<h1><%= data.title %></h1>
-				<h1><%= data.content %></h1>
+				<p style="margin-bottom: 10px"><%= formatDate %></p>
+				<p><%= data.content %></p>
 			</div>
 		</header>
 		<%- include('./partials/footer') %>
