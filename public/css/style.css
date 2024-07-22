@@ -54,6 +54,9 @@ body {
 }
 /* Basic styles for the navigation bar and drop-down */
 nav {
+	position: fixed;
+	width: 100%;
+	top: 0;
 	background-color: #fff;
 	padding: 10px;
 	border-bottom: 1px solid #555;
@@ -61,6 +64,7 @@ nav {
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	z-index: 120;
 }
 
 nav img {
@@ -707,6 +711,55 @@ font {
 }
 
 #reports h2 {
-	
 	color: #555;
+}
+
+.counter-container {
+	text-align: center;
+	margin: 20px;
+	/* display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #fff; */
+}
+.counter {
+	font-size: 48px;
+	font-weight: bold;
+	color: #0e6655;
+}
+.captions {
+	font-size: 18px;
+	color: #34495e;
+}
+
+.flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.contact-img {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url("/images/ecn_hq.jpg");
+	filter: contrast(200%); /* Increase contrast */
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	position: relative;
+}
+
+.contact-img h1 {
+	font-size: 102px;
+	font-weight: bolder;
+	color: #fff;
+	font-weight: bold;
+	margin: auto;
+	position: absolute;
+	top: 250px;
+	left: 470px;
 }

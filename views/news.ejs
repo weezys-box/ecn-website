@@ -27,14 +27,14 @@
 		></i>
 		<div id="search-publications"></div>
 		<div id="publications-input">
-			<h3>Search our pool of energy publications</h3>
+			<h3>Search Publications</h3>
 
 			<form id="form">
 				<input id="input-pub" type="text" />
 			</form>
 		</div>
 		<%- include('./partials/navbar') %>
-		<div id="news-list" class="container">
+		<div style="padding-top: 80px" id="news-list" class="container">
 			<h2>News and media releases</h2>
 			<p>View all our news and media releases.</p>
 		</div>
@@ -52,7 +52,7 @@
 				<div class="bucket">
 					<a style="cursor: pointer" href="news/<%=el.id%>"><%=el.title %></a>
 					<p style="margin: 10px 0"><%= el.date_created %></p>
-					<p><%= el.content %></p>
+					<p style="text-align: justify"><%= el.content %></p>
 				</div>
 			</div>
 		</div>

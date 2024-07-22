@@ -154,6 +154,10 @@ app.get("/downloads/:id", (req, res) => {
 	});
 });
 
+app.get("/contact", (req, res) => {
+	res.render("contact");
+});
+
 console.log(path.join(__dirname, "..", "public"));
 
 module.exports = app;

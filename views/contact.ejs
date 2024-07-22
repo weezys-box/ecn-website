@@ -28,19 +28,17 @@
 		<div id="search-publications"></div>
 		<div id="publications-input">
 			<h3>Search Publications</h3>
-
 			<form id="form">
 				<input id="input-pub" type="text" />
 			</form>
 		</div>
 		<header>
+    <body>
 			<%- include('./partials/navbar') %>
-			<div style="padding-top: 80px" id="news-view" class="container">
-				<h1><%= data.title %></h1>
-				<p style="margin-bottom: 10px"><%= formatDate %></p>
-				<p><%= data.content %></p>
-			</div>
-		</header>
-		<%- include('./partials/footer') %>
+            <div style="padding-top: 80px" class="contact-img">
+				<h1>Contact Us</h1>   
+            </div>
+			
+            <%- include('./partials/footer') %>
 	</body>
 </html>

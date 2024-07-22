@@ -3,30 +3,85 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Curved Pattern</title>
+		<title>Energy Commission Counters</title>
 		<style>
-			.curved-div {
-				width: 100%;
-				height: 300px;
-				background-color: #3498db;
-				position: relative;
-				overflow: hidden;
+			body {
+				font-family: Arial, sans-serif;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				background-color: #f4f4f4;
+				margin: 0;
 			}
-			.curved-div svg {
-				position: absolute;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				height: 100%;
-				width: 50%;
+			.counter-container {
+				text-align: center;
+				margin: 20px;
+			}
+			.counter {
+				font-size: 48px;
+				font-weight: bold;
+				color: #2c3e50;
+			}
+			.caption {
+				font-size: 18px;
+				color: #34495e;
+				margin-top: 10px;
+			}
+
+			.image {
+				filter: grayscale(100%) brightness(150%);
 			}
 		</style>
 	</head>
 	<body>
-		<div class="curved-div">
-			<svg viewBox="0 0 100 100" preserveAspectRatio="none">
-				<polygon fill="#3498db" points="0,0 100,0 100,100 0,80" />
-			</svg>
+		<div class="counter-container">
+			<div class="counter" data-count="50">0</div>
+			<div class="caption">Successful Pilot Projects</div>
 		</div>
+		<div class="counter-container">
+			<div class="counter" data-count="120">0</div>
+			<div class="caption">Published Energy Articles</div>
+		</div>
+
+		<div class="image-container">
+			<img src="./public/images/ecn_hq.jpg" alt="Image" class="image" />
+			<div class="overlay"></div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				var waypoint = new Waypoint({
+					element: $(".counter"),
+					handler: function (direction) {
+						$(".counter").each(function () {
+							var $this = $(this),
+								countTo = $this.attr("data-count");
+
+							$({ countNum: $this.text() }).animate(
+								{
+									countNum: countTo,
+								},
+								{
+									duration: 2000,
+									easing: "swing",
+									step: function () {
+										$this.text(Math.floor(this.countNum));
+									},
+									complete: function () {
+										$this.text(this.countNum);
+									},
+								}
+							);
+						});
+
+						this.destroy();
+					},
+					offset: "bottom-in-view",
+				});
+			});
+		</script>
 	</body>
 </html>

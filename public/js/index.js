@@ -40,6 +40,38 @@ $(document).ready(function () {
 		$(this).closest(".card-reveal").slideToggle("slow");
 	});
 
+	// Waypoints to detect when the element is in view
+	var waypoint = new Waypoint({
+		element: $(".counter"),
+		handler: function (direction) {
+			// Trigger the counter up when the element is in view
+			$(".counter").each(function () {
+				var $this = $(this),
+					countTo = $this.attr("data-count");
+
+				$({ countNum: $this.text() }).animate(
+					{
+						countNum: countTo,
+					},
+					{
+						duration: 5000, // Duration of the counting animation in milliseconds
+						easing: "swing",
+						step: function () {
+							$this.text(Math.floor(this.countNum));
+						},
+						complete: function () {
+							$this.text(this.countNum);
+						},
+					}
+				);
+			});
+
+			// Destroy the waypoint after it has been triggered
+			this.destroy();
+		},
+		offset: "bottom-in-view",
+	});
+
 	// hidden-text js
 });
 

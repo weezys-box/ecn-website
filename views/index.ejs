@@ -6,6 +6,12 @@
 		<title>Energy Commission of Nigeria</title>
 
 		<!-- <link rel="stylesheet" href="css/css-material.css" /> -->
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!-- Waypoints -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+		<!-- Counter-Up -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 
 		<link
 			rel="stylesheet"
@@ -32,7 +38,7 @@
 		></i>
 		<div id="search-publications"></div>
 		<div id="publications-input">
-			<h3>Search our pool of energy publications</h3>
+			<h3>Search Publications</h3>
 
 			<form id="form">
 				<input id="input-pub" type="text" />
@@ -40,7 +46,7 @@
 		</div>
 		<header>
 			<%- include('./partials/navbar') %>
-			<section>
+			<section style="padding-top: 80px">
 				<div class="container">
 					<div id="hero">
 						<div class="ecn-initiative-1">
@@ -68,6 +74,7 @@
 					</div>
 				</div>
 			</section>
+
 			<section id="vision" class="section container">
 				<div class="vision-bucket">
 					<p>Our vision</p>
@@ -82,6 +89,27 @@
 				</div>
 				<div></div>
 			</section>
+			<section class="section container flex">
+				<div class="counter-container">
+					<div class="counter" data-count="50">0</div>
+					<div class="captions">Successful Pilot Projects</div>
+				</div>
+
+				<div
+					style="
+						height: 100px;
+						border: none;
+						background-color: #555;
+						width: 5px;
+						margin: 0 25px;
+					"
+				></div>
+				<div class="counter-container">
+					<div class="counter" data-count="120">0</div>
+					<div class="captions">Published Energy Articles</div>
+				</div>
+			</section>
+
 			<section id="latest-news" class="section container curved-bottom">
 				<h2><font>Latest</font> Energy News</h2>
 				<p>
