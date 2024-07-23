@@ -3,85 +3,143 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Energy Commission Counters</title>
+		<title>Cool effects</title>
 		<style>
-			body {
-				font-family: Arial, sans-serif;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				height: 100vh;
-				background-color: #f4f4f4;
-				margin: 0;
-			}
-			.counter-container {
-				text-align: center;
-				margin: 20px;
-			}
-			.counter {
-				font-size: 48px;
-				font-weight: bold;
-				color: #2c3e50;
-			}
-			.caption {
-				font-size: 18px;
-				color: #34495e;
-				margin-top: 10px;
+			button {
+				padding: 10px;
+				border-radius: 5px;
+				color: white;
+				background-color: black;
 			}
 
-			.image {
-				filter: grayscale(100%) brightness(150%);
+			.container {
+				width: 500px;
+				height: 150px;
+				overflow: hidden;
+				/* border: 1px solid #555; */
+				background-color: none;
+				border-radius: 5px;
+				margin: 10px 0;
+				position: relative;
+			}
+
+			#box-1 {
+				height: 70px;
+				width: 70px;
+				border: none;
+				background-color: green;
+				border-radius: 5px;
+				position: absolute;
+				top: -80px;
+				left: 20px;
+				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+				transition: all ease-in-out 0.5s;
+			}
+
+			#box-2 {
+				height: 70px;
+				width: 70px;
+				border: none;
+				background-color: green;
+				border-radius: 5px;
+				position: absolute;
+				top: -80px;
+				left: 100px;
+				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+				transition: all ease-in-out 0.5s;
+			}
+
+			#box-3 {
+				height: 70px;
+				width: 70px;
+				border: none;
+				background-color: green;
+				border-radius: 5px;
+				position: absolute;
+				top: -80px;
+				left: 180px;
+				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+				transition: all ease-in-out 0.5s;
+			}
+
+			body {
+				position: relative;
+			}
+
+			.rain {
+				position: absolute;
+				top: 0;
+				width: 20px;
+				height: 20px;
+				border-radius: 100%;
+				border: none;
+				background-color: #fff;
+				transition: all ease-in-out 0.3s;
+				box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="counter-container">
-			<div class="counter" data-count="50">0</div>
-			<div class="caption">Successful Pilot Projects</div>
+		<h1>The animation happens here</h1>
+		<div class="container">
+			<div class="box" id="box-1"></div>
+			<div class="box" id="box-2"></div>
+			<div class="box" id="box-3"></div>
 		</div>
-		<div class="counter-container">
-			<div class="counter" data-count="120">0</div>
-			<div class="caption">Published Energy Articles</div>
-		</div>
-
-		<div class="image-container">
-			<img src="./public/images/ecn_hq.jpg" alt="Image" class="image" />
-			<div class="overlay"></div>
-		</div>
-
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+		<button onclick="showTime()">Click me</button>
 		<script>
-			$(document).ready(function () {
-				var waypoint = new Waypoint({
-					element: $(".counter"),
-					handler: function (direction) {
-						$(".counter").each(function () {
-							var $this = $(this),
-								countTo = $this.attr("data-count");
+			const box1 = document.getElementById("box-1");
+			const box2 = document.getElementById("box-2");
+			const box3 = document.getElementById("box-3");
+			let num;
+			let nums;
 
-							$({ countNum: $this.text() }).animate(
-								{
-									countNum: countTo,
-								},
-								{
-									duration: 2000,
-									easing: "swing",
-									step: function () {
-										$this.text(Math.floor(this.countNum));
-									},
-									complete: function () {
-										$this.text(this.countNum);
-									},
-								}
-							);
-						});
+			console.log(box1.style.marginLeft);
 
-						this.destroy();
-					},
-					offset: "bottom-in-view",
-				});
-			});
+			function showTime() {
+				setTimeout(() => {
+					num = 0;
+					while (num < 40) {
+						box1.style.top = num + "px";
+						box1.style.backgroundColor = "yellow";
+						num++;
+					}
+				}, 1000);
+				setTimeout(() => {
+					num = 0;
+					while (num < 40) {
+						box2.style.top = num + "px";
+						box2.style.backgroundColor = "red";
+						num++;
+					}
+				}, 1100);
+				setTimeout(() => {
+					num = 0;
+					while (num < 40) {
+						box3.style.top = num + "px";
+						box3.style.backgroundColor = "orange";
+						num++;
+					}
+				}, 1300);
+			}
+
+			// Math.floor(Math.random() * 10);
+
+			let rainPour = function () {
+				setInterval(() => {
+					let rainDrop = document.createElement("rain");
+					let fall = 0;
+					rainDrop.classList.add("rain");
+					rainDrop.style.left = Math.floor(Math.random() * 1000) + "px";
+					document.body.append(rainDrop);
+					setInterval(() => {
+						rainDrop.style.marginTop = fall + "px";
+						fall++;
+					}, 100);
+				}, 1000);
+			};
+
+			rainPour();
 		</script>
 	</body>
 </html>
