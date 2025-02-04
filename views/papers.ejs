@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Energy Commission of Nigeria</title>
+		<link rel="stylesheet" href="/css/style.css" />
+		<link
+			rel="stylesheet"
+			href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+		/>
+		<!-- Font Awesome CSS -->
+         <!-- roboto sans -->
+         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+	</head>
+	<body id="body">
+		<i
+			id="delete-icon"
+			class="fa fa-close"
+			style="
+				font-size: 48px;
+				color: black;
+				position: fixed;
+				left: 1250px;
+				top: 30px;
+				z-index: 300;
+				display: none;
+			"
+		></i>
+		<div id="search-publications"></div>
+		<div id="publications-input">
+			<h3>Search Publications</h3>
+			<form id="form" method="GET" action="/searchres">
+				<input
+					id="input-pub"
+					name="query"
+					type="text"
+					placeholder="Search publications..."
+					required
+				/>
+				<button type="submit" class="submit">Search</button>
+			</form>
+		</div>
+		<header>
+    <body>
+			<%- include('./partials/navbar') %>
+		<h1>Publications</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Cover Page</th>
+					<th>Download</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% papers.forEach(paper => { %>
+				<tr>
+					<td class="title-column"><%= paper.title %></td>
+					<td>
+						<img
+							src="<%= paper.url_path_to_first_page %>"
+							alt="<%= paper.title %> front page"
+							width="100" class="paper-image"
+						/>
+					</td>
+					<td><a href="<%= paper.download_path %>">Download</a></td>
+				</tr>
+				<% }) %>
+			</tbody>
+		</table>
+		<%- include('./partials/footer') %>
+	</body>
+</html>

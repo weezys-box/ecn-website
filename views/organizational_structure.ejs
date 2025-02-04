@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Energy Commission of Nigeria</title>
+
+		<!-- <link rel="stylesheet" href="css/css-material.css" /> -->
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!-- Waypoints -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+		<!-- Counter-Up -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
+		<link
+			rel="stylesheet"
+			href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+		/>
+		<!-- Font Awesome CSS -->
+
+		<!-- custom css -->
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			h1,
+			h2 {
+				color: #004080;
+			}
+			ul {
+				padding-left: 20px;
+			}
+			ul li {
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body id="body">
+		<i
+			id="delete-icon"
+			class="fa fa-close"
+			style="
+				font-size: 48px;
+				color: black;
+				position: fixed;
+				left: 1250px;
+				top: 30px;
+				z-index: 300;
+				display: none;
+			"
+		></i>
+		<div id="search-publications"></div>
+		<div id="publications-input">
+			<h3>Search Publications</h3>
+
+			<form id="form" method="GET" action="/searchres">
+				<input
+					id="input-pub"
+					name="query"
+					type="text"
+					placeholder="Search publications..."
+					required
+				/>
+				<button type="submit" class="submit">Search</button>
+			</form>
+		</div>
+		<header>
+			<%- include('./partials/navbar') %>
+			<div style="padding-top: 80px" id="news-view" class="container">
+				<section>
+					<h2>Board Members</h2>
+					<p>
+						The management of Nigeria's energy resources presently lies under
+						the control of many organisations and institutions, amongst which is
+						the Energy Commission of Nigeria, established as the apex organ of
+						government for energy policy formulation and coordination. It was in
+						recognition of the crucial role of energy, as earlier highlighted,
+						that the government established a high powered Board for the
+						Commission, consisting of the President, C-in-C, as the Chairman and
+						with Ministers charged with the responsibility for the following
+						matters (as contained in the Act) as members:
+					</p>
+					<ul>
+						<li>Agriculture and Rural Development</li>
+						<li>Defence</li>
+						<li>Environment</li>
+						<li>Foreign Affairs</li>
+						<li>Finance and Economic Development</li>
+						<li>Petroleum Resources</li>
+						<li>Power and Steel</li>
+						<li>Science and Technology</li>
+						<li>Water Resources</li>
+					</ul>
+					<p>
+						The Director-General of the Energy Commission of Nigeria is the
+						Secretary to the Commission. The Commission has power to regulate
+						its own proceedings.
+					</p>
+					<p>
+						The Board has the responsibility for the general management of the
+						Commission while the day-to-day running of the affairs of the
+						Commission is the responsibility of the Director-General. Also, the
+						Act provides a Technical Arm for the Commission known as the
+						Technical Advisory Committee (TAC).
+					</p>
+					<div class="download">
+						<p>
+							Below is a chart in PDF of the Organisational Structure of the
+							Energy Commission of Nigeria that you can download:
+						</p>
+						<a href="organizational_chart.pdf" download>Download PDF Chart</a>
+					</div>
+				</section>
+			</div>
+		</header>
+		<%- include('./partials/footer') %>
+	</body>
+</html>

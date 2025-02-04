@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Organizational Structure</title>
+		<style>
+			/* Basic Reset */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #f9f9f9;
+				color: #333;
+				padding: 20px;
+			}
+
+			h1 {
+				text-align: center;
+				margin-bottom: 30px;
+				color: #2c3e50;
+			}
+
+			.org-chart {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.org-level {
+				display: flex;
+				justify-content: center;
+				margin-bottom: 20px;
+			}
+
+			.org-node {
+				background-color: #fff;
+				border: 2px solid #3498db;
+				border-radius: 8px;
+				padding: 15px 20px;
+				text-align: center;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				margin: 0 10px;
+				position: relative;
+			}
+
+			.org-node::after {
+				content: "";
+				position: absolute;
+				width: 2px;
+				height: 20px;
+				background-color: #3498db;
+				bottom: -20px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			.org-node:last-child::after {
+				display: none;
+			}
+
+			.org-node span {
+				display: block;
+				font-weight: bold;
+				color: #3498db;
+			}
+
+			.org-node p {
+				margin: 5px 0 0;
+				font-size: 14px;
+				color: #666;
+			}
+
+			.org-level:last-child .org-node::after {
+				display: none;
+			}
+
+			.org-level:not(:first-child) {
+				margin-top: 40px;
+			}
+
+			.org-level:not(:first-child) .org-node::before {
+				content: "";
+				position: absolute;
+				width: 2px;
+				height: 20px;
+				background-color: #3498db;
+				top: -20px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			.sub-level {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 20px;
+			}
+
+			.sub-level .org-node {
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Organizational Structure</h1>
+		<div class="org-chart">
+			<!-- Top Level: Board of the Commission -->
+			<div class="org-level">
+				<div class="org-node">
+					<span>Board of the Commission</span>
+				</div>
+			</div>
+
+			<!-- Second Level: Director General -->
+			<div class="org-level">
+				<div class="org-node">
+					<span>Director General</span>
+				</div>
+			</div>
+
+			<!-- Third Level: Technical Advisory Committee -->
+			<div class="org-level">
+				<div class="org-node">
+					<span>TECHNICAL ADVISORY COMMITTEE</span>
+				</div>
+			</div>
+
+			<!-- Fourth Level: Energy Research Centers -->
+			<div class="org-level">
+				<div class="org-node">
+					<span>ENERGY RESEARCH CENTERS</span>
+				</div>
+			</div>
+
+			<!-- Sub-Level: Energy Research Centers -->
+			<div class="sub-level">
+				<div class="org-node">
+					<span>NCEEC Uni. Of Lagos</span>
+				</div>
+				<div class="org-node">
+					<span>NACHHRD Univ. of Ilorin (Hydropower)</span>
+				</div>
+				<div class="org-node">
+					<span>NCERD Univ. Of Nsukka (Solar & Renewable)</span>
+				</div>
+				<div class="org-node">
+					<span>SERC UDU. Sokoto (Solar & Renewable)</span>
+				</div>
+				<div class="org-node">
+					<span>NCPRD ATBU Bauchi</span>
+				</div>
+				<div class="org-node">
+					<span>NCEE</span>
+				</div>
+			</div>
+
+			<!-- Fourth Level: Departments -->
+			<div class="org-level">
+				<div class="org-node">
+					<span>HRM DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>F&A DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>GS DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>EIS DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>ICT DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>ENERGY MANAGEMENT DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>ETMD DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>EPPA DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>ELECTRICITY AND FOSSIL FUEL DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>RENEWABLE ENERGY DEPT</span>
+				</div>
+			</div>
+
+			<!-- Sub-Level: Units Under the DG’s Office -->
+			<div class="org-level">
+				<div class="org-node">
+					<span>UNITS UNDER THE DG’S OFFICE</span>
+				</div>
+			</div>
+			<div class="sub-level">
+				<div class="org-node">
+					<span>INTERNAL AUDIT</span>
+				</div>
+				<div class="org-node">
+					<span>BUDGET MONITORING & EVALUATION</span>
+				</div>
+				<div class="org-node">
+					<span>PROCUREMENT</span>
+				</div>
+				<div class="org-node">
+					<span>MEDIA UNIT</span>
+				</div>
+				<div class="org-node">
+					<span>Energy Transition and Linkages</span>
+				</div>
+			</div>
+
+			<!-- Fourth Level: Additional Departments -->
+			<div class="org-level">
+				<div class="org-node">
+					<span>RCSI DEPT</span>
+				</div>
+				<div class="org-node">
+					<span>SD DEPT</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

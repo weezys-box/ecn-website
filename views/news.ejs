@@ -29,8 +29,15 @@
 		<div id="publications-input">
 			<h3>Search Publications</h3>
 
-			<form id="form">
-				<input id="input-pub" type="text" />
+			<form id="form" method="GET" action="/searchres">
+				<input
+					id="input-pub"
+					name="query"
+					type="text"
+					placeholder="Search publications..."
+					required
+				/>
+				<button type="submit" class="submit">Search</button>
 			</form>
 		</div>
 		<%- include('./partials/navbar') %>

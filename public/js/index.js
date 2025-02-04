@@ -111,24 +111,27 @@ function showSearch() {
 	});
 }
 
-deleteIcn.addEventListener("click", () => {
-	console.log(123);
-});
+// deleteIcn.addEventListener("click", () => {
+// 	console.log(123);
+// });
 
-formSearch.addEventListener("submit", (e) => {
-	e.preventDefault();
-	input = input.value.trim();
+// NEW CODE AROUND HERE....
 
-	try {
-		fetch("/search", {
-			// Replace '/api/endpoint' with your actual API endpoint
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ input }), // Send the input value as a JSON payload
-		});
-	} catch (error) {
-		console.error("Error sending input value:", error);
-	}
-});
+// formSearch.addEventListener("submit", (e) => {
+// 	e.preventDefault();
+// 	input = input.value.trim();
+// 	console.log(input);
+
+// 	try {
+// 		fetch("/search", {
+// 			// Replace '/api/endpoint' with your actual API endpoint
+// 			method: "POST",
+// 			headers: {
+// 				"Content-Type": "application/json",
+// 			},
+// 			body: JSON.stringify({ input }), // Send the input value as a JSON payload
+// 		});
+// 	} catch (error) {
+// 		console.error("Error sending input value:", error);
+// 	}
+// });

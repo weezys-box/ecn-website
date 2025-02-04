@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Energy Commission of Nigeria</title>
+
+		<!-- <link rel="stylesheet" href="css/css-material.css" /> -->
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!-- Waypoints -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+		<!-- Counter-Up -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
+		<link
+			rel="stylesheet"
+			href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+		/>
+		<!-- Font Awesome CSS -->
+
+		<!-- custom css -->
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			h1,
+			h2 {
+				color: #004080;
+			}
+			ul {
+				padding-left: 20px;
+			}
+			ul li {
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body id="body">
+		<i
+			id="delete-icon"
+			class="fa fa-close"
+			style="
+				font-size: 48px;
+				color: black;
+				position: fixed;
+				left: 1250px;
+				top: 30px;
+				z-index: 300;
+				display: none;
+			"
+		></i>
+		<div id="search-publications"></div>
+		<div id="publications-input">
+			<h3>Search Publications</h3>
+
+			<form id="form" method="GET" action="/searchres">
+				<input
+					id="input-pub"
+					name="query"
+					type="text"
+					placeholder="Search publications..."
+					required
+				/>
+				<button type="submit" class="submit">Search</button>
+			</form>
+		</div>
+		<header>
+			<%- include('./partials/navbar') %>
+			<div style="padding-top: 80px" id="news-view" class="container">
+				<h1>Mission and Vision</h1>
+
+				<h2>Vision Statement</h2>
+				<p>
+					<strong
+						>To ensure adequate, reliable, cost-effective, and sustainable
+						energy supply for the nation’s economic and socio-political
+						development.</strong
+					>
+				</p>
+
+				<h2>Mission Statement</h2>
+				<p>
+					<strong
+						>To promote sustainable energy development in Nigeria through the
+						production of strategic plans and coordination of national policies
+						in all its ramifications.</strong
+					>
+				</p>
+
+				<br />
+
+				<p>The Commission shall:</p>
+				<ul>
+					<li>
+						Serve as a centre for gathering and dissemination of information
+						relating to national policy in the field of Energy development.
+					</li>
+					<li>
+						Serve as a centre for solving any inter-related technical problems
+						that may arise in the implementation of any policy relating to the
+						field of energy.
+					</li>
+					<li>
+						Advise the government of the Federation or a State on questions
+						relating to energy as referred by the Government.
+					</li>
+					<li>
+						Prepare periodic master plans for the balanced and coordinated
+						development of energy in Nigeria, including:
+						<ul>
+							<li>
+								Recommendations for the exploitation of new sources of energy as
+								needed.
+							</li>
+							<li>
+								Other relevant recommendations to the Government of the
+								Federation.
+							</li>
+						</ul>
+					</li>
+					<li>
+						Lay down guidelines on the utilization of energy types for specific
+						purposes and in a prescribed sequence.
+					</li>
+					<li>
+						Advise the Government on adequate funding of the energy sector,
+						including research, development, production, and distribution.
+					</li>
+					<li>
+						Collate, analyze, and publish information relating to the field of
+						energy from all sources.
+					</li>
+					<li>
+						Monitor the performance of the Energy sector in executing government
+						policies.
+					</li>
+					<li>
+						Liaise with international energy organizations such as the
+						International Atomic Energy Agency, International Renewable Energy
+						Agency, and World Energy Council.
+					</li>
+					<li>
+						Promote training and manpower development in the Energy Sector.
+					</li>
+					<li>Carry out other activities as directed by the Government.</li>
+				</ul>
+			</div>
+		</header>
+		<%- include('./partials/footer') %>
+	</body>
+</html>

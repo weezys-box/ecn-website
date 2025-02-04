@@ -5,7 +5,28 @@ const app = express();
 const path = require("path");
 const truncate = require("truncate-html");
 const { format } = require("date-fns");
+const nodemailer = require("nodemailer");
 // import { truncateHtmls } from "../utils";
+
+// utility functions
+
+function formatText(text) {
+	// Fix any encoding issues (optional but recommended)
+	text = text.replace(/\?/g, "'");
+
+	// Split text into paragraphs using double newlines
+	let paragraphs = text.split(/\n\s*\n/).map((para) => {
+		// Replace single newlines inside paragraphs with <br> but only when necessary
+		para = para.replace(/(\w)\n(\w)/g, "$1 $2"); // Convert improper line breaks to spaces
+		para = para.replace(/([.!?])\s*\n/g, "$1<br>"); // Preserve line breaks after punctuation
+
+		// Wrap the paragraph in <p> tags
+		return `<p>${para}</p>`;
+	});
+
+	// Join the paragraphs back together
+	return paragraphs.join("");
+}
 
 // db connection
 
@@ -74,16 +95,25 @@ app.get("/", (req, res) => {
 		if (err) throw err;
 
 		connection.query(
-			"SELECT * FROM news ORDER BY created_at DESC LIMIT 3 ",
+			"SELECT * FROM news ORDER BY published_at DESC LIMIT 3 ",
 			(err, news) => {
 				if (err) throw err;
 
 				const trimNews = news.map((trim) => {
+					let trimmed_news = trim.title.trim();
+					let news_title = trimmed_news
+						.replace(/-/g, "_") // Replace hyphens with underscores
+						.replace(/,/g, "_") // Replace commas with double underscores
+						.replace(/'/g, "_") // Replace apostrophes with underscores
+						.replace(/[^\w\s]/g, "") // Remove other special characters
+						.replace(/\s+/g, "_");
 					return {
 						title: trim.title,
 						content: truncate(trim.content, 100),
-						date_created: trim.date_created,
-						image_url: trim.image_url,
+						published_at: trim.published_at,
+						image_1: "../scraped_news_images/" + news_title + "/image_1.jpg",
+						image_2: "../scraped_news_images/" + news_title + "/image_2.jpg",
+						image_3: "/scraped_news_images/" + news_title + "/image_3.jpg",
 						id: trim.id,
 					};
 				});
@@ -96,7 +126,7 @@ app.get("/", (req, res) => {
 
 app.get("/news", (req, res) => {
 	connection.query(
-		"SELECT * FROM news order by created_at DESC ",
+		"SELECT * FROM news order by published_at DESC ",
 		(err, results) => {
 			if (err) throw err;
 			console.log("mohammed");
@@ -106,7 +136,7 @@ app.get("/news", (req, res) => {
 					title: news.title,
 					content: truncate(news.content, 500),
 					id: news.id,
-					date_created: format(news.created_at, "MMMM dd, yyyy"),
+					date_created: format(news.published_at, "MMMM dd, yyyy"),
 				};
 			});
 			// console.log(newsBlog);
@@ -123,10 +153,41 @@ app.get("/news/:id", (req, res) => {
 		if (err) throw err;
 		console.log(result);
 		let data = result[0];
-		const formatDate = format(result[0].created_at, "MMMM dd, yyyy");
+		let news_data = result[0].content.slice(0, -167);
+		console.log(news_data);
+		let dir_title = data.title;
+		let formattedTitle = dir_title.replace(/[^a-zA-Z0-9_]+/g, "_");
+
+		const formatDate = format(result[0].published_at, "MMMM dd, yyyy");
+		const images_data = {
+			img1:
+				"../scraped_news_images/" +
+				result[0].image_1.slice(19, -11) +
+				"/image1.jpg",
+			img2:
+				"../scraped_news_images/" +
+				result[0].image_1.slice(19, -11) +
+				"/image2.jpg",
+			img3:
+				"../scraped_news_images/" +
+				result[0].image_1.slice(19, -11) +
+				"/image3.jpg",
+		};
+
 		// results.forEach((el) => console.log(el));
 
-		res.render("news-view", { data, formatDate });
+		console.log(formattedTitle);
+		// let formated_news = news_data.split("\n\n").map(line => `<p>${line}</p>`).join("");
+
+		let formated_news = formatText(news_data);
+		res.render("news-view", {
+			news_data,
+			data,
+			images_data,
+			formatDate,
+			formattedTitle,
+			formated_news,
+		});
 	});
 });
 
@@ -156,6 +217,82 @@ app.get("/downloads/:id", (req, res) => {
 
 app.get("/contact", (req, res) => {
 	res.render("contact");
+});
+
+// Journal search functionality
+
+app.get("/searchres", async (req, res) => {
+	const searchQuery = req.query.query;
+
+	if (!searchQuery) {
+		return res.status(400).send("Search query is required");
+	}
+
+	// SQL query to search in title, description, and authors columns
+	const sql = `
+        SELECT * 
+        FROM reports 
+        WHERE 
+            title LIKE ? OR 
+            description LIKE ? OR 
+            authors LIKE ?
+    `;
+
+	// Wildcard search term for SQL
+	const searchTerm = `%${searchQuery}%`;
+
+	// Execute the query
+	connection.query(
+		sql,
+		[searchTerm, searchTerm, searchTerm],
+		(err, results) => {
+			if (err) {
+				console.error("Error executing query:", err);
+				return res
+					.status(500)
+					.send("An error occurred while searching the database");
+			}
+
+			// Return the results as JSON
+			res.json(results);
+		}
+	);
+});
+
+app.get("/papers", (req, res) => {
+	connection.query(
+		"SELECT * FROM papers order by created_at DESC ",
+		(err, results) => {
+			if (err) throw err;
+			console.log("mohammed");
+			// console.log(results);
+			const papers = results.map((paper) => {
+				return {
+					title: paper.title,
+					url_path_to_first_page: paper.url_path,
+					download_path: paper.download_path,
+					created_at: paper.created_at,
+				};
+			});
+
+			// console.log(url_path);
+
+			res.render("papers", { papers });
+			// res.send(papers);
+		}
+	);
+});
+
+app.get("/misionandvision", (req, res) => {
+	res.render("misionandvision");
+});
+
+app.get("/technical_advisory", (req, res) => {
+	res.render("technical_advisory");
+});
+
+app.get("/organizational_structure", (req, res) => {
+	res.render("organizational_structure");
 });
 
 console.log(path.join(__dirname, "..", "public"));

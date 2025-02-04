@@ -434,8 +434,10 @@ footer a {
 }
 
 #news-view p {
-	line-height: 1.5em;
-	text-align: justify;
+	font-size: 1.1rem !important;
+	text-align: justify !important;
+	margin-bottom: 15px !important;
+	line-height: 1.7; /* Standard readability */
 }
 
 /* copied code begins from here */
@@ -548,6 +550,12 @@ footer a {
 	flex-wrap: wrap;
 }
 
+.news-meta {
+	font-size: 0.9rem;
+	color: #777; /* Lighter color for date & author */
+	margin-bottom: 15px;
+}
+
 .news-block {
 	display: flex;
 	flex-direction: column;
@@ -624,7 +632,7 @@ h3 {
 #vision div {
 	flex: 1;
 
-	height: 150px;
+	/* height: 150px; */
 }
 
 #vision p {
@@ -763,3 +771,207 @@ font {
 	top: 250px;
 	left: 470px;
 }
+
+.contact-form {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	padding: 20px 0;
+}
+
+.form-contact {
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+.contact-form-detail {
+	display: flex;
+	flex-direction: column;
+	padding: 0 10px;
+}
+
+.contact-form-detail,
+iframe {
+	flex: 1;
+}
+
+#send-message {
+	background-color: #0e6655;
+	border: none;
+	padding: 0 10px;
+	height: 400px;
+}
+
+#send-message input,
+#message {
+	border: none;
+	margin: 10px 0;
+	border-bottom: 2px solid white; /* Add a white border at the bottom */
+	background-color: transparent; /* Make the background transparent */
+	color: white; /* Set the text color to white (optional) */
+	outline: none; /* Remove the outline when the input is focused */
+	padding: 5px 0;
+	color: #fff;
+	display: block;
+	width: 100%;
+	font-size: 18px;
+}
+
+.form-contact #send-message .btn {
+	padding: 10px;
+	border: 1px solid #0e6655;
+	background-color: #fff;
+	color: #0e6655;
+	border-radius: 3px;
+	margin: 10px 0;
+	display: inline-block;
+}
+
+#message {
+	height: 120px;
+}
+
+.news-images {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.news-images img {
+	width: calc(
+		33% - 10px
+	); /* Each image takes up 1/3rd of the container width */
+	height: 100px;
+	border-radius: 5px;
+}
+
+#twitter-news-feed {
+	overflow: hidden;
+	overflow-y: scroll;
+	padding: 0 10px;
+	height: 100%;
+}
+
+/* table style here but temporarily */
+
+/* General table styling */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 40px 0 0 0;
+	font-size: 16px;
+	font-family: Arial, sans-serif;
+	background-color: #fff;
+}
+
+/* Table header styling */
+table thead tr {
+	background-color: #009879;
+	color: #ffffff;
+	text-align: left;
+}
+
+/* Table body row styling */
+table tbody tr {
+	border-bottom: 1px solid #dddddd;
+}
+
+/* Table body row hover effect */
+table tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+/* Table cell padding */
+table th,
+table td {
+	padding: 8px;
+	text-align: left;
+}
+
+/* Image styling */
+table img {
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.paper-image {
+	width: 150px; /* Adjust width as needed */
+	height: auto; /* Maintains aspect ratio */
+}
+/* Ensure table cells adjust to the image size */
+.image-cell {
+	width: 150px; /* Match this to the image width */
+}
+
+.news-images img {
+	max-width: 300px; /* Prevents it from getting too large */
+	height: auto; /* Keeps aspect ratio */
+	display: block; /* Prevents inline spacing issues */
+	margin: 10px auto; /* Centers the image and adds spacing */
+	border-radius: 8px; /* Adds rounded corners */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+	object-fit: cover; /* Ensures images fill their area without distortion */
+}
+
+.title-column {
+	font-family: "Roboto", sans-serif;
+	font-weight: 700;
+	font-size: 0.9em;
+
+	letter-spacing: 1px;
+}
+.title-column:hover {
+	background-color: #e0e0e0;
+}
+
+/* mission and vision new css */
+
+.mission-vision {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: url("../images/vision-background.jpg") no-repeat center
+		center/cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: white;
+	padding: 20px;
+}
+.mission-vision .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(14, 102, 85, 0.85); /* Green overlay */
+}
+.mission-vision .content {
+	position: relative;
+	max-width: 800px;
+	z-index: 1;
+	color: #fff;
+}
+.mission-vision .content h1 {
+	font-size: 36px;
+	margin-bottom: 20px;
+	color: #ffff;
+}
+.mission-vision .content h2 {
+	font-size: 18px;
+	line-height: 1.6;
+	color: #fff;
+	font-weight: lighter;
+}
+
+/* ENDS */
+
+@media (max-width: 600px) {
+	.title-column {
+		font-size: 0.7em;
+	}
+}
+
+/* table ends here */

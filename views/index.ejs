@@ -40,8 +40,15 @@
 		<div id="publications-input">
 			<h3>Search Publications</h3>
 
-			<form id="form">
-				<input id="input-pub" type="text" />
+			<form id="form" method="GET" action="/searchres">
+				<input
+					id="input-pub"
+					name="query"
+					type="text"
+					placeholder="Search publications..."
+					required
+				/>
+				<button type="submit" class="submit">Search</button>
 			</form>
 		</div>
 		<header>
@@ -77,7 +84,7 @@
 
 			<section id="vision" class="section container">
 				<div class="vision-bucket">
-					<p>Our vision</p>
+					<!-- <p>Our vision</p>
 					<h3 class="hidden-text">
 						To
 						<font>
@@ -85,9 +92,38 @@
 							supply</font
 						>
 						for the nation’s economic & socio-political development.
-					</h3>
+					</h3> -->
+					<div class="mission-vision">
+						<div class="overlay"></div>
+						<div class="content">
+							<h1>Our Vision</h1>
+							<h2>
+								To ensure adequate, reliable, cost-effective, and sustainable
+								energy supply for Nigeria’s economic and socio-political
+								development.
+							</h2>
+							<h1>Our Mission</h1>
+							<h2>
+								To promote sustainable energy development in Nigeria through
+								strategic planning and coordination of national policies.
+							</h2>
+						</div>
+					</div>
 				</div>
-				<div></div>
+				<div id="twitter-news-feed">
+					<a
+						class="twitter-timeline"
+						data-height="400"
+						data-tweet-limit="5"
+						href="https://twitter.com/Arsenal?ref_src=twsrc%5Etfw"
+						>Tweets by Arsenal</a
+					>
+					<script
+						async
+						src="https://platform.twitter.com/widgets.js"
+						charset="utf-8"
+					></script>
+				</div>
 			</section>
 			<section class="section container flex">
 				<div class="counter-container">
@@ -121,11 +157,12 @@
 					<div class="news-block">
 						<div
 							class="img"
-							style="background-image: url('<%=news.image_url %>')"
+							style="background-image: url('<%= news.image_1 %>')"
 						></div>
 						<div class="text">
 							<h3><%=news.title %></h3>
 							<p><%=news.content%></p>
+
 							<a href="news/<%=news.id %>">Read More</a>
 						</div>
 					</div>

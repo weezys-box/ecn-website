@@ -28,16 +28,39 @@
 		<div id="search-publications"></div>
 		<div id="publications-input">
 			<h3>Search Publications</h3>
-			<form id="form">
-				<input id="input-pub" type="text" />
+			<form id="form" method="GET" action="/searchres">
+				<input
+					id="input-pub"
+					name="query"
+					type="text"
+					placeholder="Search publications..."
+					required
+				/>
+				<button type="submit" class="submit">Search</button>
 			</form>
 		</div>
 		<header>
     <body>
 			<%- include('./partials/navbar') %>
             <div style="padding-top: 80px" class="contact-img">
-				<h1>Contact Us</h1>   
+				<h1>Contact Us </h1>   
             </div>
+			<div class="contact-form">
+				<div class="contact-form-detail">
+					<h1 style="margin: 10px 0; color: #333 !important;">Need some information? Reach out to us</h1>
+					<div class="form-contact">
+						<form id="send-message">
+							<h1 style="color:#fff">Send us a message</h1>
+						  <input id="name" type="text" placeholder="Name">
+						  <input id="email" type="text" placeholder="Email">
+						  <input id="subject" type="text" placeholder="Subject">
+						  <textarea id="message" placeholder="Message"></textarea>
+						  <input class="btn" type="submit" value="Send Message" >
+						</form>
+					</div>
+				</div>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15760.258948541148!2d7.4922416!3d9.05785985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0b987794feeb%3A0x7ccd6c4baa4d6bb4!2sEnergy%20Commission%20Of%20Nigeria%20ECN!5e0!3m2!1sen!2sng!4v1724234103814!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
 			
             <%- include('./partials/footer') %>
 	</body>

@@ -29,17 +29,77 @@
 		<div id="publications-input">
 			<h3>Search Publications</h3>
 
-			<form id="form">
-				<input id="input-pub" type="text" />
+			<form id="form" method="GET" action="/searchres">
+				<input
+					id="input-pub"
+					name="query"
+					type="text"
+					placeholder="Search publications..."
+					required
+				/>
+				<button type="submit" class="submit">Search</button>
 			</form>
 		</div>
 		<header>
 			<%- include('./partials/navbar') %>
+
 			<div style="padding-top: 80px" id="news-view" class="container">
-				<h1><%= data.title %></h1>
-				<p style="margin-bottom: 10px"><%= formatDate %></p>
-				<p><%= data.content %></p>
+				<div class="news-container">
+					<div class="news-images">
+						<!-- Conditionally display images up to 3 -->
+						<% if (images_data.img1) { %>
+						<img
+							src="../scraped_news_images/<%= formattedTitle %>/image_1.jpg"
+							alt="News Image 1"
+						/>
+						<% } %> <% if (images_data.img2) { %>
+						<img
+							src="../scraped_news_images/<%= formattedTitle %>/image_2.jpg"
+							alt="News Image 2"
+						/>
+						<% } %> <% if (images_data.img3) { %>
+						<img
+							src="../scraped_news_images/<%= formattedTitle %>/image_3.jpg"
+							alt="News Image 3"
+						/>
+						<% } %>
+					</div>
+				</div>
+				<div class="news-container"></div>
+				<h1
+					style="
+						font-size: 2rem; /* Larger heading */
+						font-weight: bold;
+						margin-bottom: 15px;
+						color: #0e6655; /* Matches your theme */
+					"
+				>
+					<%= data.title %>
+				</h1>
+				<p
+					style="
+						margin-bottom: 10px;
+						font-size: 0.9rem;
+						color: #777; /* Lighter color for date & author */
+						margin-bottom: 15px;
+					"
+					class="news-meta"
+				>
+					Published on <%= formatDate %>
+				</p>
+				<p><%- formated_news %></p>
 			</div>
+
+			<!-- <p>
+					<%= "../scraped_news_images/" + data.image_1.slice(19, -11) +
+					"/image_3.jpg" %>
+				</p> -->
+
+			<!-- <img
+					src="../scraped_news_images/DG_ECN_Decorated_as_Champion_for_Outstanding_Service_Delivery/image_1.jpg"
+					alt=""
+				/>
+			</div> -->
 		</header>
 		<%- include('./partials/footer') %>
 	</body>

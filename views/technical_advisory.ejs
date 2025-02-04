@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Energy Commission of Nigeria</title>
+
+		<!-- <link rel="stylesheet" href="css/css-material.css" /> -->
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!-- Waypoints -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+		<!-- Counter-Up -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
+		<link
+			rel="stylesheet"
+			href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+		/>
+		<!-- Font Awesome CSS -->
+
+		<!-- custom css -->
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			h1,
+			h2 {
+				color: #004080;
+			}
+			ul {
+				padding-left: 20px;
+			}
+			ul li {
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body id="body">
+		<i
+			id="delete-icon"
+			class="fa fa-close"
+			style="
+				font-size: 48px;
+				color: black;
+				position: fixed;
+				left: 1250px;
+				top: 30px;
+				z-index: 300;
+				display: none;
+			"
+		></i>
+		<div id="search-publications"></div>
+		<div id="publications-input">
+			<h3>Search Publications</h3>
+
+			<form id="form" method="GET" action="/searchres">
+				<input
+					id="input-pub"
+					name="query"
+					type="text"
+					placeholder="Search publications..."
+					required
+				/>
+				<button type="submit" class="submit">Search</button>
+			</form>
+		</div>
+		<header>
+			<%- include('./partials/navbar') %>
+			<div style="padding-top: 80px" id="news-view" class="container">
+                <h1>Technical Advisory Committee</h1>
+    </header>
+    <section id="news-view" class="container">
+      <p>
+        This is the technical arm of the Commission provided by Law. It consists of professionals representing various Ministries, Government Agencies, and Non-Governmental Organizations concerned with the regulation of production, supply, demand, and utilisation of the various energy sources. It has sixteen (16) members (as modified by the Commission) with the Director-General of the Commission as its Chairman.
+      </p>
+      <p>
+        Other members are professionals representing the following Ministries, Government Agencies or Professional Organisations:
+      </p>
+      <ul>
+        <li>Agriculture and Rural Development</li>
+        <li>Defence</li>
+        <li>Energy Research Centres and any new Energy Centre(s) that may be established from time to time</li>
+        <li>Environment</li>
+        <li>Foreign Affairs</li>
+        <li>Finance and Economic Development</li>
+        <li>Industries</li>
+        <li>Nigerian Coal Corporation</li>
+        <li>Nigerian Electricity Regulatory Commission (NERC) - To replace PHCN</li>
+        <li>Nigerian National Petroleum Corporation</li>
+        <li>Nigerian Society of Engineers</li>
+        <li>Petroleum Resources</li>
+        <li>Power and Steel</li>
+        <li>Science and Technology</li>
+        <li>Transport</li>
+        <li>Water Resources</li>
+      </ul>
+      <p>
+        In addition, the Commission may co-opt, when necessary, any suitable Nigerian whose contribution may be needed by the Committee.
+      </p>
+            </div>
+		</header>
+		<%- include('./partials/footer') %>
+	</body>
+</html>
