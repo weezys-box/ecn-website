@@ -1,0 +1,12 @@
+INSERT INTO reports (title, download_path, image_path, published_date) VALUES
+('2-Day Technical Validation Workshop On SE4A', '/reports/2-Day Technical Validation Workshop On SE4A.pdf', '/thumbnails/2-Day Technical Validation Workshop On SE4A.jpg', '2025-02-05 12:00:14'),
+('20181130-EIRA_2018_Nigeria_extended_profile', '/reports/20181130-EIRA_2018_Nigeria_extended_profile.pdf', '/thumbnails/20181130-EIRA_2018_Nigeria_extended_profile.jpg', '2025-02-05 12:00:15'),
+('ECN_Annual_Report_2019', '/reports/ECN_Annual_Report_2019.pdf', '/thumbnails/ECN_Annual_Report_2019.jpg', '2025-02-05 12:00:18'),
+('Energy Investment Risk Assessment (EIRA) Extended Country Profile_ECOWAS-Nigeria 2021', '/reports/Energy Investment Risk Assessment (EIRA) Extended Country Profile_ECOWAS-Nigeria 2021.pdf', '/thumbnails/Energy Investment Risk Assessment (EIRA) Extended Country Profile_ECOWAS-Nigeria 2021.jpg', '2025-02-05 12:00:21'),
+('Energy Investment Risk Assessment (EIRA) Extended Country Profile_Nigeria 2020', '/reports/Energy Investment Risk Assessment (EIRA) Extended Country Profile_Nigeria 2020.pdf', '/thumbnails/Energy Investment Risk Assessment (EIRA) Extended Country Profile_Nigeria 2020.jpg', '2025-02-05 12:00:24'),
+('Energy Investment Risk Assessment 2020', '/reports/Energy Investment Risk Assessment 2020.pdf', '/thumbnails/Energy Investment Risk Assessment 2020.jpg', '2025-02-05 12:00:27'),
+('Energy_Audit_Report_ECN20170323-1', '/reports/Energy_Audit_Report_ECN20170323-1.pdf', '/thumbnails/Energy_Audit_Report_ECN20170323-1.jpg', '2025-02-05 12:00:27'),
+('IRENA_REMap_Nigeria_2023', '/reports/IRENA_REMap_Nigeria_2023.pdf', '/thumbnails/IRENA_REMap_Nigeria_2023.jpg', '2025-02-05 12:00:32'),
+('Nigeria Energy Calculator_NECAL2050', '/reports/Nigeria Energy Calculator_NECAL2050.pdf', '/thumbnails/Nigeria Energy Calculator_NECAL2050.jpg', '2025-02-05 12:00:32'),
+('Off-Grid Solar PV For Healthcare- Adamawa State 2016', '/reports/Off-Grid Solar PV For Healthcare- Adamawa State 2016.pdf', '/thumbnails/Off-Grid Solar PV For Healthcare- Adamawa State 2016.jpg', '2025-02-05 12:00:33'),
+('Report on National Energy Summit and NASEF, 2015', '/reports/Report on National Energy Summit and NASEF, 2015.pdf', '/thumbnails/Report on National Energy Summit and NASEF, 2015.jpg', '2025-02-05 12:00:33');
