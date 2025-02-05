@@ -35,16 +35,16 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const connection = mysql.createConnection({
-	// host: process.env.DB_HOST,
-	// user: process.env.DB_USER,
-	// password: process.env.DB_PASS,
-	// database: process.env.DB_NAME,
-	host: "autorack.proxy.rlwy.net",
-	user: "root",
-	password: "zZjnkqRiXnXFANbamWrwojaZjcGDhlOl", // replace with the actual password
-	database: "railway",
-	port: 19250,
-	connectTimeout: 10000, // Adjust timeout if necessary
+	host: process.env.DB_HOST,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASS,
+	database: process.env.DB_NAME,
+	// 	host: "autorack.proxy.rlwy.net",
+	// 	user: "root",
+	// 	password: "zZjnkqRiXnXFANbamWrwojaZjcGDhlOl", // replace with the actual password
+	// 	database: "railway",
+	// 	port: 19250,
+	// 	connectTimeout: 10000, // Adjust timeout if necessary
 });
 
 connection.connect((err) => {
@@ -221,6 +221,26 @@ app.get("/downloads/:id", (req, res) => {
 	});
 });
 
+app.get("/paper-downloads/:id", (req, res) => {
+	let id = req.params.id;
+	id = parseInt(id);
+
+	connection.query(`SELECT * FROM papers where id = ${id} `, (err, result) => {
+		if (err) throw err;
+		console.log(result);
+		let fileName = result[0].title + ".pdf";
+		// results.forEach((el) => console.log(el));
+
+		const file = path.join(__dirname, "..", "public", "papers", fileName);
+		res.download(file, (err) => {
+			if (err) {
+				console.error("File download error:", err);
+				res.status(500).send("Error downloading file.");
+			}
+		});
+	});
+});
+
 app.get("/contact", (req, res) => {
 	res.render("contact");
 });
@@ -299,6 +319,14 @@ app.get("/technical_advisory", (req, res) => {
 
 app.get("/organizational_structure", (req, res) => {
 	res.render("organizational_structure");
+});
+
+app.get("/carousel-test", (req, res) => {
+	connection.query("SELECT * FROM reports ", (err, results) => {
+		if (err) throw err;
+		console.log(results);
+		res.render("carousel-test", { reports: results });
+	});
 });
 
 console.log(path.join(__dirname, "..", "public"));

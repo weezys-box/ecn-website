@@ -56,16 +56,18 @@
 			</thead>
 			<tbody>
 				<% papers.forEach(paper => { %>
-				<tr>
+				<tr style="height: 60px;">
 					<td class="title-column"><%= paper.title %></td>
 					<td>
 						<img
 							src="<%= paper.url_path_to_first_page %>"
 							alt="<%= paper.title %> front page"
 							width="100" class="paper-image"
+                            height="60px"
 						/>
 					</td>
-					<td><a href="<%= paper.download_path %>">Download</a></td>
+					<td><a href="/papers/<%= paper.id %>">Download</a></td>
+                    
 				</tr>
 				<% }) %>
 			</tbody>
