@@ -35,17 +35,17 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const connection = mysql.createConnection({
-	// host: process.env.DB_HOST,
-	// user: process.env.DB_USER,
-	// password: process.env.DB_PASS,
-	// database: process.env.DB_NAME,
+	host: process.env.DB_HOST,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASS,
+	database: process.env.DB_NAME,
 	// MY RENDER DETAILS STARTS FROM HERE...
-	host: "autorack.proxy.rlwy.net",
-	user: "root",
-	password: "zZjnkqRiXnXFANbamWrwojaZjcGDhlOl", // replace with the actual password
-	database: "railway",
-	port: 19250,
-	connectTimeout: 10000, // Adjust timeout if necessary
+	// host: "autorack.proxy.rlwy.net",
+	// user: "root",
+	// password: "zZjnkqRiXnXFANbamWrwojaZjcGDhlOl", // replace with the actual password
+	// database: "railway",
+	// port: 19250,
+	// connectTimeout: 10000, // Adjust timeout if necessary
 });
 
 connection.connect((err) => {

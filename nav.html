@@ -1,357 +1,79 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Cool effects</title>
-		<style>
-			button {
-				padding: 10px;
-				border-radius: 5px;
-				color: white;
-				background-color: black;
-			}
-
-			.container {
-				width: 500px;
-				height: 150px;
-				overflow: hidden;
-				/* border: 1px solid #555; */
-				background-color: none;
-				border-radius: 5px;
-				margin: 10px 0;
-				position: relative;
-			}
-
-			#box-1 {
-				height: 70px;
-				width: 70px;
-				border: none;
-				background-color: green;
-				border-radius: 5px;
-				position: absolute;
-				top: -80px;
-				left: 20px;
-				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-				transition: all ease-in-out 0.5s;
-			}
-
-			#box-2 {
-				height: 70px;
-				width: 70px;
-				border: none;
-				background-color: green;
-				border-radius: 5px;
-				position: absolute;
-				top: -80px;
-				left: 100px;
-				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-				transition: all ease-in-out 0.5s;
-			}
-
-			#box-3 {
-				height: 70px;
-				width: 70px;
-				border: none;
-				background-color: green;
-				border-radius: 5px;
-				position: absolute;
-				top: -80px;
-				left: 180px;
-				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-				transition: all ease-in-out 0.5s;
-			}
-
-			body {
-				position: relative;
-			}
-
-			.rain {
-				position: absolute;
-				top: 0;
-				width: 20px;
-				height: 20px;
-				border-radius: 100%;
-				border: none;
-				background-color: #fff;
-				transition: all ease-in-out 0.3s;
-				box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-			}
-		</style>
-	</head>
-	<body>
-		<h1>The animation happens here</h1>
-		<div class="container">
-			<div class="box" id="box-1"></div>
-			<div class="box" id="box-2"></div>
-			<div class="box" id="box-3"></div>
-		</div>
-		<button onclick="showTime()">Click me</button>
-		<script>
-			const box1 = document.getElementById("box-1");
-			const box2 = document.getElementById("box-2");
-			const box3 = document.getElementById("box-3");
-			let num;
-			let nums;
-
-			console.log(box1.style.marginLeft);
-
-			function showTime() {
-				setTimeout(() => {
-					num = 0;
-					while (num < 40) {
-						box1.style.top = num + "px";
-						box1.style.backgroundColor = "yellow";
-						num++;
-					}
-				}, 1000);
-				setTimeout(() => {
-					num = 0;
-					while (num < 40) {
-						box2.style.top = num + "px";
-						box2.style.backgroundColor = "red";
-						num++;
-					}
-				}, 1100);
-				setTimeout(() => {
-					num = 0;
-					while (num < 40) {
-						box3.style.top = num + "px";
-						box3.style.backgroundColor = "orange";
-						num++;
-					}
-				}, 1300);
-			}
-
-			// Math.floor(Math.random() * 10);
-
-			let rainPour = function () {
-				setInterval(() => {
-					let rainDrop = document.createElement("rain");
-					let fall = 0;
-					rainDrop.classList.add("rain");
-					rainDrop.style.left = Math.floor(Math.random() * 1000) + "px";
-					document.body.append(rainDrop);
-					setInterval(() => {
-						rainDrop.style.marginTop = fall + "px";
-						fall++;
-					}, 100);
-				}, 1000);
-			};
-
-			// rainPour();
-		</script>
-	</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Management Team</title>
-		<link rel="stylesheet" href="styles.css" />
+		<title>Curvy Gradient with Subtle Waves</title>
 		<style>
 			body {
-				font-family: Arial, sans-serif;
-				background-color: #f4f4f4;
 				margin: 0;
 				padding: 0;
+				font-family: Arial, sans-serif;
 			}
-			.management-section {
-				text-align: center;
-				padding: 50px;
-				background-color: white;
-			}
-			h2 {
-				font-size: 24px;
-				margin-bottom: 20px;
-			}
-			.positions ul {
-				list-style: none;
-				padding: 0;
-				width: 50%;
-				margin: auto;
-			}
-			.positions li {
-				background: #0e6655;
-				color: white;
-				padding: 10px 15px;
-				border-radius: 5px;
-				cursor: pointer;
-				transition: 0.3s;
-				margin-bottom: 5px;
+
+			.curvy-section {
 				position: relative;
+				width: 100%;
+				height: 300px; /* Adjust height as needed */
+				background: linear-gradient(
+					to right,
+					#0e6655,
+					#148f77
+				); /* Main gradient */
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				text-align: center;
+				font-size: 24px;
+				font-weight: bold;
+				overflow: hidden;
 			}
-			.positions li:hover {
-				background: #0b4d42;
+
+			.wave {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23197363" fill-opacity="0.2" d="M0,128L60,122.7C120,117,240,107,360,128C480,149,600,203,720,213.3C840,224,960,192,1080,165.3C1200,139,1320,117,1380,106.7L1440,96V320H0Z"></path></svg>');
+				background-size: cover;
+				opacity: 0.2; /* Makes the waves subtle */
 			}
-			.profile-container {
-				display: none;
+
+			.share-buttons a {
+				display: inline-block;
 				padding: 10px;
-				border-radius: 10px;
-				background: white;
-				box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-				margin-top: 5px;
-			}
-			.profile-container img {
-				width: 80px;
-				height: 80px;
-				border-radius: 5%;
-				object-fit: cover;
-				margin-bottom: 10px;
+				margin: 5px;
+				color: white;
+				background-color: #0e6655; /* Your theme color */
+				text-decoration: none;
+				border-radius: 5px;
 			}
 		</style>
 	</head>
 	<body>
-		<section class="management-section">
-			<h2>Our Management Team</h2>
-			<div class="positions">
-				<ul id="positionList"></ul>
-			</div>
-		</section>
+		<div class="curvy-section">
+			Your News Title Here
+			<div class="wave"></div>
+		</div>
 
-		<script>
-			const teamMembers = [
-				{
-					name: "Dr. Mustapha Abdullahi",
-					title: "Director General/Chief Executive Officer",
-					qualification: "PhD,(Mech. Engrg); MIMechE.",
-					image:
-						"public/scraped_news_images/Dr_Mustapha_Abdullahi_Resumes_As_DG_CEO_ECN/image_1.jpg",
-					bio: "Dr. John Doe has over 20 years of experience in the energy sector and policy formulation.",
-				},
-				{
-					name: "Abdulazeez Yakubu Elamah, Esq.",
-					title: "Director, Legal Services",
-					qualification:
-						"BA (Comb. Hons.), PGDip (Public Relations), MPA, Bachelor of Laws (LL. B), BL.",
-					image: "images/jane.jpg",
-					bio: "Jane Smith specializes in energy research and sustainable solutions.",
-				},
-
-				{
-					name: "Engr Mohammed Adam Mundu",
-					title: "Director, Energy Untilization and Management",
-					qualification:
-						"BSc. Petroleum Engrg, M.Eng Energy Engrg, R.COREN, FIDFPM, MNSE, MNIP",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Hajara Onaolapo Babatunde-Gegele",
-					title: "Director, General Services",
-					qualification:
-						"BSc.( International Relations),PGD (Business Admin), MNIM",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Engr. Felix O. Olu",
-					title: "Director, Electricity and Fossil Fuels",
-					qualification:
-						"B.Eng (Hons) (Electrical),MSc (Electronics-ICT), MNSE, MNCS, FNIEEE",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "B. F. Ibrahim Sulu",
-					title: "Director, Renewable Energy",
-					qualification: "MSc.(Mech. Eng.)",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Dadeino H. Bamaiyi",
-					title: "Director, Internal Audit",
-					qualification:
-						"BSc Accounting, MBA (Finance),MANAN, MASA(USA), AMNIM.",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "B. F. Ibrahim Sulu",
-					title: "Director, Renewable Energy",
-					qualification: "MSc.(Mech. Eng.)",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Haruna Bala",
-					title: "Director, Human Resource Management",
-					qualification: "BA, MPA, MPIA, MCIPM, MNIIA.",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Engr. Abaka Jafar Umar",
-					title: "Director, Public Procurement",
-					qualification: "B. Eng(Elect- Elect), M.Eng(Energy Studies), MCAD.",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Engr. Steve O. Adedayo",
-					title: "Director, Information and Communications Technology",
-					qualification: "BA, MPA, MPIA, MCIPM, MNIIA.",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Dr. Asogwa Jude Chukwugozie",
-					title: "Director, Energy Training and Manpower Development",
-					qualification: "PhD(Electrical) MNSE, R.Engr.COREN.",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Dr. Abdulwaheed Suleiman Ahmed",
-					title: "Director, Energy Training and Manpower Development",
-					qualification:
-						"PhD Environmental Engineering, MRSC, MSESN, MNES, MCSN",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Dr. Asogwa Jude Chukwugozie",
-					title: "Ag. Director, Special Duties",
-					qualification: "PhD(Electrical) MNSE, R.Engr.COREN.",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-				{
-					name: "Mr. Abdurrahman Ahmed",
-					title: "Director, Energy Policy, Planning and Analysis",
-					qualification: "B.Engr. (Agric).",
-					image: "images/michael.jpg",
-					bio: "Michael oversees all technical operations within the commission.",
-				},
-			];
-
-			const positionList = document.getElementById("positionList");
-
-			teamMembers.forEach((member, index) => {
-				const listItem = document.createElement("li");
-				listItem.textContent = member.title;
-
-				const profileContainer = document.createElement("div");
-				profileContainer.className = "profile-container";
-				profileContainer.innerHTML = `
-                <img src="${member.image}" alt="${member.name}">
-                <h3>${member.name}</h3>
-                <p><strong>${member.title}</strong></p>
-                <p>${member.qualification}</p>
-                <p>${member.bio}</p>
-            `;
-
-				listItem.onclick = () => {
-					profileContainer.style.display =
-						profileContainer.style.display === "block" ? "none" : "block";
-				};
-
-				positionList.appendChild(listItem);
-				positionList.appendChild(profileContainer);
-			});
-		</script>
+		<div class="share-buttons">
+			<a
+				href="https://twitter.com/intent/tweet?url=https://yourwebsite.com/news-post&text=Check+out+this+news!"
+				target="_blank"
+				>🐦 Twitter</a
+			>
+			<a
+				href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com/news-post"
+				target="_blank"
+				>📘 Facebook</a
+			>
+			<a
+				href="https://wa.me/?text=Check+out+this+news!%20https://yourwebsite.com/news-post"
+				target="_blank"
+				>📱 WhatsApp</a
+			>
+		</div>
 	</body>
 </html>

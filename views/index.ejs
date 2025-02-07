@@ -106,7 +106,7 @@
 			}
 
 			.nav-btn {
-				background: #007bff;
+				background: #0e6655;
 				color: #fff;
 				border: none;
 				padding: 10px 15px;
@@ -122,7 +122,7 @@
 			}
 
 			.nav-btn:hover:not(:disabled) {
-				background: #0056b3;
+				background: #0b4d40;
 			}
 
 			.report-container .report-content {
@@ -135,9 +135,10 @@
 				overflow: hidden;
 				text-align: center;
 				padding: 15px;
-				max-width: 400px; /* Adjust as needed */
-				min-height: 300px; /* Adjust based on content */
-				max-height: 350px; /* Ensures uniform height */
+				max-width: 400px;
+				min-width: 400px; /* Adjust as needed */
+				min-height: 400px; /* Adjust based on content */
+				max-height: 400px; /* Ensures uniform height */
 			}
 
 			.report-file_url {
@@ -338,6 +339,7 @@
 							<img class="report-file_url" src="" alt="" />
 
 							<p class="report-title"></p>
+							<a download class="download-btn"> Download Report </a>
 						</div>
 
 						<button class="nav-btn" id="next">
@@ -356,6 +358,7 @@
 			const titleElement = document.querySelector(".report-title");
 			const descriptionElement = document.querySelector(".report-description");
 			const contentContainer = document.querySelector(".report-content");
+			const downloadPath = document.querySelector(".download-btn")
 			const file_urlContainer = document.querySelector(".report-file_url")
 			const prevButton = document.getElementById("prev");
 			const nextButton = document.getElementById("next");
@@ -366,6 +369,7 @@
 			        titleElement.textContent = reports[currentIndex].title;
 			        // descriptionElement.textContent = reports[currentIndex].description;
 			        file_urlContainer.src = reports[currentIndex].image_path;
+					document.querySelector(".download-btn").setAttribute("href", reports[currentIndex].download_path);
 			        contentContainer.style.opacity = "1";
 			    }, 300);
 
