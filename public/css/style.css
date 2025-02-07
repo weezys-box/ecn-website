@@ -35,7 +35,7 @@ a {
 }
 
 .container {
-	width: 1300px;
+	width: 1350px;
 	margin: 0 auto;
 	background-color: #fff;
 	/* border: 1px solid #555; */
@@ -964,6 +964,12 @@ table img {
 	line-height: 1.6;
 	color: #fff;
 	font-weight: lighter;
+}
+
+.profile-container p {
+	text-align: center !important;
+	justify-content: center;
+	align-items: center;
 }
 
 /* ENDS */
