@@ -39,6 +39,7 @@ const connection = mysql.createConnection({
 	// user: process.env.DB_USER,
 	// password: process.env.DB_PASS,
 	// database: process.env.DB_NAME,
+	// MY RENDER DETAILS STARTS FROM HERE...
 	host: "autorack.proxy.rlwy.net",
 	user: "root",
 	password: "zZjnkqRiXnXFANbamWrwojaZjcGDhlOl", // replace with the actual password
@@ -327,6 +328,10 @@ app.get("/carousel-test", (req, res) => {
 		console.log(results);
 		res.render("carousel-test", { reports: results });
 	});
+});
+
+app.get("/management", (req, res) => {
+	res.render("management");
 });
 
 console.log(path.join(__dirname, "..", "public"));

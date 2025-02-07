@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Energy Commission of Nigeria</title>
+
+		<!-- <link rel="stylesheet" href="css/css-material.css" /> -->
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!-- Waypoints -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+		<!-- Counter-Up -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+
+		<link
+			rel="stylesheet"
+			href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+		/>
+		<!-- Font Awesome CSS -->
+
+		<!-- custom css -->
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			.management-section {
+				text-align: center;
+				padding: 50px;
+				background-color: white;
+			}
+			h2 {
+				font-size: 24px;
+				margin-bottom: 20px;
+			}
+			.positions ul {
+				list-style: none;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				max-width: 500px;
+				margin: auto;
+			}
+			.positions li {
+				background: #0e6655;
+				color: white;
+				padding: 10px 15px;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: background 0.3s;
+				position: relative;
+			}
+			.positions li:hover {
+				background: #0b4d42;
+			}
+			.profile-container {
+				overflow: hidden;
+				max-height: 0;
+				transition: max-height 0.5s ease-out, padding 0.3s ease;
+				background: white;
+				padding: 0 15px;
+				border-radius: 5px;
+				box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+				text-align: center;
+			}
+			.profile-container img {
+				width: 200px;
+				height: 200px;
+				border-radius: 5%;
+				object-fit: cover;
+				margin-top: 10px;
+			}
+
+			h3 {
+				color: #555;
+				text-align: center;
+			}
+
+			p {
+				color: #555;
+				/* text-align: center; */
+			}
+		</style>
+	</head>
+	<body id="body">
+		<i
+			id="delete-icon"
+			class="fa fa-close"
+			style="
+				font-size: 48px;
+				color: black;
+				position: fixed;
+				left: 1250px;
+				top: 30px;
+				z-index: 300;
+				display: none;
+			"
+		></i>
+		<div id="search-publications"></div>
+		<div id="publications-input">
+			<h3>Search Publications</h3>
+
+			<form id="form" method="GET" action="/searchres">
+				<input
+					id="input-pub"
+					name="query"
+					type="text"
+					placeholder="Search publications..."
+					required
+				/>
+				<button type="submit" class="submit">Search</button>
+			</form>
+		</div>
+		<header>
+			<%- include('./partials/navbar') %>
+			<div style="padding-top: 80px" class="container">
+				<section class="management-section">
+					<h2>Our Management Team</h2>
+					<div class="positions">
+						<ul id="positionList"></ul>
+					</div>
+				</section>
+			</div>
+		</header>
+		<%- include('./partials/footer') %>
+		<script>
+			const teamMembers = [
+				{
+					name: "Dr. Mustapha Abdullahi",
+					title: "Director General/Chief Executive Officer",
+					qualification: "PhD,(Mech. Engrg), MIMechE.",
+					image: "../images/management_staff/DG_ECN_Dr_MA.jpg",
+					bio: "Dr. John Doe has over 20 years of experience in the energy sector and policy formulation.",
+				},
+				{
+					name: "Abdulazeez Yakubu Elamah, Esq.",
+					title: "Director, Legal Services",
+					qualification:
+						"BA (Comb. Hons.), PGDip (Public Relations), MPA, Bachelor of Laws (LL. B), BL.",
+					image: "../images/management_staff/D_LS.jpg",
+					bio: "Jane Smith specializes in energy research and sustainable solutions.",
+				},
+
+				{
+					name: "Engr Mohammed Adam Mundu",
+					title: "Director, Energy Untilization and Management",
+					qualification:
+						"BSc. Petroleum Engrg, M.Eng Energy Engrg, R.COREN, FIDFPM, MNSE, MNIP",
+					image: "../images/management_staff/D_EUM.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+				{
+					name: "Hajara Onaolapo Babatunde-Gegele",
+					title: "Director, General Services",
+					qualification:
+						"BSc.( International Relations),PGD (Business Admin), MNIM",
+					image: "images/management_staff/D_GS.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+				{
+					name: "Engr. Felix O. Olu",
+					title: "Director, Electricity and Fossil Fuels",
+					qualification:
+						"B.Eng (Hons) (Electrical),MSc (Electronics-ICT), MNSE, MNCS, FNIEEE",
+					image: "images/management_staff/D_EFF.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+				{
+					name: "B. F. Ibrahim Sulu",
+					title: "Director, Renewable Energy",
+					qualification: "MSc.(Mech. Eng.)",
+					image: "images/management_staff/D_RE.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+				{
+					name: "Dadeino H. Bamaiyi",
+					title: "Director, Internal Audit",
+					qualification:
+						"BSc Accounting, MBA (Finance),MANAN, MASA(USA), AMNIM.",
+					image: "images/management_staff/D_internalAudit.jpg.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+
+				{
+					name: "Haruna Bala",
+					title: "Director, Human Resource Management",
+					qualification: "BA, MPA, MPIA, MCIPM, MNIIA.",
+					image: "images/management_staff/D_HRM.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+				{
+					name: "Engr. Abaka Jafar Umar",
+					title: "Director, Public Procurement",
+					qualification: "B. Eng(Elect- Elect), M.Eng(Energy Studies), MCAD.",
+					image: "images/management_staff/D_PP.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+				{
+					name: "Engr. Steve O. Adedayo",
+					title: "Director, Information and Communications Technology",
+					qualification: "BA, MPA, MPIA, MCIPM, MNIIA.",
+					image: "images/michael.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+
+				{
+					name: "Dr. Asogwa Jude Chukwugozie",
+					title: "Director, Energy Training and Manpower Development",
+
+					qualification: "PhD(Electrical) MNSE, R.Engr.COREN.",
+					image: "images/management_staff/D_ETMD.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+				{
+					name: "Dr. Abdulwaheed Suleiman Ahmed",
+					title: "Ag. Director, Special Duties",
+					qualification:
+						"PhD Environmental Engineering, MRSC, MSESN, MNES, MCSN",
+					image: "images/management_staff/D_SD.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+
+				{
+					name: "Mr. Abdurrahman Ahmed",
+					title: "Director, Energy Policy, Planning and Analysis",
+					qualification: "B.Engr. (Agric).",
+					image: "images/michael.jpg",
+					bio: "Michael oversees all technical operations within the commission.",
+				},
+			];
+			const positionList = document.getElementById("positionList");
+
+			teamMembers.forEach((member, index) => {
+				const listItem = document.createElement("li");
+				listItem.textContent = member.title;
+				listItem.dataset.index = index;
+
+				const profileContainer = document.createElement("div");
+				profileContainer.classList.add("profile-container");
+				profileContainer.style.maxHeight = "0"; // Ensure it starts collapsed
+				profileContainer.innerHTML = `
+        <img src="${member.image}" alt="${member.name}">
+        <h3>${member.name}</h3>
+        <p><strong>${member.title}</strong></p>
+        <p>${member.qualification}</p>`;
+
+				listItem.appendChild(profileContainer);
+				listItem.addEventListener("click", () => {
+					// Close all other open profiles
+					document
+						.querySelectorAll(".profile-container")
+						.forEach((container) => {
+							if (container !== profileContainer) {
+								container.style.maxHeight = "0";
+								container.style.padding = "0 15px";
+							}
+						});
+
+					// Toggle the clicked profile
+					if (profileContainer.style.maxHeight === "0px") {
+						profileContainer.style.maxHeight =
+							profileContainer.scrollHeight + 30 + "px";
+						profileContainer.style.padding = "15px";
+					} else {
+						profileContainer.style.maxHeight = "0";
+						profileContainer.style.padding = "0 15px";
+					}
+				});
+				positionList.appendChild(listItem);
+			});
+		</script>
+	</body>
+</html>
