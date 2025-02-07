@@ -434,10 +434,10 @@ footer a {
 }
 
 #news-view p {
-	font-size: 1.1rem !important;
+	font-size: 18px !important;
 	text-align: justify !important;
 	margin-bottom: 15px !important;
-	line-height: 1.7; /* Standard readability */
+	line-height: 1.6; /* Standard readability */
 }
 
 /* copied code begins from here */
@@ -970,6 +970,21 @@ table img {
 	text-align: center !important;
 	justify-content: center;
 	align-items: center;
+}
+
+.download-btn {
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: #0e6655;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+.download-btn:hover {
+	background-color: #0b4d40;
 }
 
 /* ENDS */
