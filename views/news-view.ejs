@@ -44,42 +44,50 @@
 			<%- include('./partials/navbar') %>
 
 			<div style="padding-top: 80px" id="news-view" class="container">
-				<div class="news-container">
+				<div style="position: relative;" class="news-container">
+					<div style="background-color: #0e6655; text-align: center; padding: 25px 0;margin-bottom: 15px; position: relative;" class="new-title-block">
+						<h1
+					style="
+						
+						margin-bottom: 15px;
+						color: #fff; /* Matches your theme */
+						
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  letter-spacing: 2px; /* Adds space between letters for elegance */
+					"
+				>
+					<%= data.title %>
+				</div>
+					
 					<div class="news-images">
 						<!-- Conditionally display images up to 3 -->
-						<% if (images_data.img1) { %>
+						<% if (images_data.img1 !== null && images_data.img1 !== "NULL") { %>
 						<img
 							src="../scraped_news_images/<%= formattedTitle %>/image_1.jpg"
 							alt="News Image 1"
 						/>
-						<% } %> <% if (images_data.img2) { %>
+						<% } %> <% if (images_data.img2 !== null && images_data.img2 !== "NULL") { %>
 						<img
 							src="../scraped_news_images/<%= formattedTitle %>/image_2.jpg"
 							alt="News Image 2"
 						/>
-						<% } %> <% if (images_data.img3) { %>
+						<% } %> <% if (images_data.img3 !== null && images_data.img3 !== "NULL") { %>
 						<img
 							src="../scraped_news_images/<%= formattedTitle %>/image_3.jpg"
 							alt="News Image 3"
 						/>
 						<% } %>
 					</div>
-				</div>
+				
 				<div class="news-container"></div>
-				<h1
-					style="
-						font-size: 2rem; /* Larger heading */
-						font-weight: bold;
-						margin-bottom: 15px;
-						color: #0e6655; /* Matches your theme */
-					"
-				>
-					<%= data.title %>
+				
 				</h1>
 				<p
 					style="
 						margin-bottom: 10px;
-						font-size: 0.9rem;
+						font-size: 0.5rem;
 						color: #777; /* Lighter color for date & author */
 						margin-bottom: 15px;
 					"
@@ -88,6 +96,19 @@
 					Published on <%= formatDate %>
 				</p>
 				<p><%- formated_news %></p>
+				<div class="c-share">
+					<input class="c-share__input" type="checkbox" id="checkbox" />
+					<label class="c-share__toggler" for="checkbox">
+						<span class="c-share__icon"></span>
+					</label>
+		
+					<ul class="c-share_options" data-title="Share">
+						<li>Facebook</li>
+						<li>Twitter</li>
+						<li>Google</li>
+						<li>Email</li>
+					</ul>
+				</div>
 			</div>
 
 			<!-- <p>

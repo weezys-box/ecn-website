@@ -16,11 +16,11 @@ function formatText(text) {
 
 	// Split text into paragraphs using double newlines
 	let paragraphs = text.split(/\n\s*\n/).map((para) => {
-		// Replace single newlines inside paragraphs with <br> but only when necessary
+		// Replace single newlines inside paragraphs with <p> but only when necessary
 		para = para.replace(/(\w)\n(\w)/g, "$1 $2"); // Convert improper line breaks to spaces
-		para = para.replace(/([.!?])\s*\n/g, "$1<br>"); // Preserve line breaks after punctuation
+		para = para.replace(/([.!?])\s*\n/g, "$1</p><p>"); // Replace line breaks after punctuation with paragraph tags
 
-		// Wrap the paragraph in <p> tags
+		// Ensure each paragraph is wrapped in <p> tags
 		return `<p>${para}</p>`;
 	});
 
@@ -164,27 +164,48 @@ app.get("/news/:id", (req, res) => {
 		let news_data = result[0].content.slice(0, -167);
 		console.log(news_data);
 		let dir_title = data.title;
-		let formattedTitle = dir_title.replace(/[^a-zA-Z0-9_]+/g, "_");
+		let formattedTitle = dir_title
+			.replace(/[^a-zA-Z0-9_]+/g, "_")
+			.replace(/_+/g, "_"); // Collapse multiple underscores into a single "_";
 
 		const formatDate = format(result[0].published_at, "MMMM dd, yyyy");
+		const img1_exist = function img1() {
+			if (result[0].image_1) {
+				return (
+					"../scraped_news_images/" +
+					result[0].image_1.slice(19, -11) +
+					"/image1.jpg"
+				);
+			} else return null;
+		};
+
+		const img2_exist = function img1() {
+			if (result[0].image_2) {
+				return (
+					"../scraped_news_images/" +
+					result[0].image_1.slice(19, -11) +
+					"/image1.jpg"
+				);
+			} else return null;
+		};
+
+		const img3_exist = function img1() {
+			if (result[0].image_3) {
+				return (
+					"../scraped_news_images/" +
+					result[0].image_1.slice(19, -11) +
+					"/image1.jpg"
+				);
+			} else return null;
+		};
 		const images_data = {
-			img1:
-				"../scraped_news_images/" +
-				result[0].image_1.slice(19, -11) +
-				"/image1.jpg",
-			img2:
-				"../scraped_news_images/" +
-				result[0].image_1.slice(19, -11) +
-				"/image2.jpg",
-			img3:
-				"../scraped_news_images/" +
-				result[0].image_1.slice(19, -11) +
-				"/image3.jpg",
+			img1: img1_exist(),
+			img2: img2_exist(),
+			img3: img3_exist(),
 		};
 
 		// results.forEach((el) => console.log(el));
 
-		console.log(formattedTitle);
 		// let formated_news = news_data.split("\n\n").map(line => `<p>${line}</p>`).join("");
 
 		let formated_news = formatText(news_data);
@@ -261,9 +282,7 @@ app.get("/searchres", async (req, res) => {
         SELECT * 
         FROM reports 
         WHERE 
-            title LIKE ? OR 
-            description LIKE ? OR 
-            authors LIKE ?
+            title LIKE ? 
     `;
 
 	// Wildcard search term for SQL

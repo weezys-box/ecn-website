@@ -2,78 +2,290 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Curvy Gradient with Subtle Waves</title>
+		<meta
+			name="viewport"
+			content="width=
+		, initial-scale=1.0"
+		/>
+		<title>Document</title>
 		<style>
-			body {
-				margin: 0;
-				padding: 0;
+			.announcement {
+				background: #f8f9f9; /* Golden-yellow for emphasis */
+				color: #0e6655; /* Dark green text */
+				padding: 10px 20px;
+				text-align: center;
+				font-weight: bold;
+			}
+
+			.announcement a {
+				color: #fff;
+				text-decoration: underline;
+			}
+
+			.announcement a:hover {
+				text-decoration: none;
+			}
+
+			footer {
+				background: #0e6655; /* Dark green */
+				color: #fff;
+				padding: 40px 20px;
 				font-family: Arial, sans-serif;
 			}
 
-			.curvy-section {
-				position: relative;
-				width: 100%;
-				height: 300px; /* Adjust height as needed */
-				background: linear-gradient(
-					to right,
-					#0e6655,
-					#148f77
-				); /* Main gradient */
+			.footer-container {
 				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				max-width: 1200px;
+				margin: auto;
+			}
+
+			.footer-section {
+				flex: 1;
+				min-width: 250px;
+				margin-bottom: 20px;
+			}
+
+			.footer-section h2,
+			.footer-section h3 {
+				color: #f8f9f9; /* Golden-yellow highlight */
+				margin-bottom: 15px;
+			}
+
+			.footer-section ul {
+				list-style: none;
+				padding: 0;
+			}
+
+			.footer-section ul li {
+				margin-bottom: 10px;
+			}
+
+			.footer-section ul li a {
+				color: #ddd;
+				text-decoration: none;
+				transition: color 0.3s;
+			}
+
+			.footer-section ul li a:hover {
+				color: #f4b400;
+			}
+
+			.footer-section p,
+			.footer-section a {
+				font-size: 15px;
+			}
+
+			.footer-section .newsletter form {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.footer-section .newsletter input {
+				padding: 10px;
+				border: none;
+				border-radius: 5px;
+				margin-bottom: 10px;
+				font-size: 16px;
+				width: 100%;
+			}
+
+			.footer-section .newsletter button {
+				background: #f4b400;
+				color: #004d00;
+				padding: 10px;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				font-weight: bold;
+			}
+
+			.footer-section .newsletter button:hover {
+				background: #e0a300;
+			}
+
+			.footer-bottom {
+				text-align: center;
+				padding-top: 20px;
+				border-top: 1px solid #bbb;
+			}
+
+			.mid-div {
+				display: flex;
+				flex-direction: row;
 				align-items: center;
 				justify-content: center;
-				color: white;
+			}
+
+			.mid-div .blank-space {
+				flex: 1;
+			}
+
+			.announcement {
+				flex: 1;
+			}
+
+			.tab-container {
 				text-align: center;
-				font-size: 24px;
-				font-weight: bold;
-				overflow: hidden;
+				margin-bottom: 20px;
 			}
 
-			.wave {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23197363" fill-opacity="0.2" d="M0,128L60,122.7C120,117,240,107,360,128C480,149,600,203,720,213.3C840,224,960,192,1080,165.3C1200,139,1320,117,1380,106.7L1440,96V320H0Z"></path></svg>');
-				background-size: cover;
-				opacity: 0.2; /* Makes the waves subtle */
-			}
-
-			.share-buttons a {
-				display: inline-block;
-				padding: 10px;
-				margin: 5px;
+			.tab-button {
+				background: #004d00;
 				color: white;
-				background-color: #0e6655; /* Your theme color */
-				text-decoration: none;
-				border-radius: 5px;
+				padding: 10px 20px;
+				border: none;
+				cursor: pointer;
+				margin: 5px;
+				transition: 0.3s;
+			}
+
+			.tab-button.active,
+			.tab-button:hover {
+				background: #f4b400;
+			}
+
+			.tab-content {
+				display: none;
+				text-align: center;
+			}
+
+			.tab-content.active {
+				display: block;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="curvy-section">
-			Your News Title Here
-			<div class="wave"></div>
+		<section class="management">
+			<h2>Management Team</h2>
+			<div class="tab-container">
+				<button class="tab-button active" data-tab="directors">
+					Directors
+				</button>
+				<button class="tab-button" data-tab="managers">Managers</button>
+				<button class="tab-button" data-tab="advisors">Advisors</button>
+			</div>
+
+			<div id="directors" class="tab-content active">
+				<p><strong>Dr. John Doe</strong> - Director General</p>
+				<p><strong>Jane Smith</strong> - Director of Energy Research</p>
+			</div>
+
+			<div id="managers" class="tab-content">
+				<p><strong>Ali Yusuf</strong> - Head of Renewable Energy</p>
+			</div>
+
+			<div id="advisors" class="tab-content">
+				<p><strong>Prof. Adebayo Okon</strong> - Energy Policy Advisor</p>
+			</div>
+		</section>
+
+		<div class="mid-div">
+			<div class="blank-space"></div>
+			<section class="announcement">
+				<div class="announcement-content">
+					<h1><strong>Latest Announcement:</strong></h1>
+
+					<p>
+						The Energy Commission of Nigeria is hosting the 2025 National Energy
+						Summit on March 15th, 2025.
+						<br />
+						<a href="/events">Learn More</a>
+					</p>
+				</div>
+			</section>
 		</div>
 
-		<div class="share-buttons">
-			<a
-				href="https://twitter.com/intent/tweet?url=https://yourwebsite.com/news-post&text=Check+out+this+news!"
-				target="_blank"
-				>🐦 Twitter</a
-			>
-			<a
-				href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com/news-post"
-				target="_blank"
-				>📘 Facebook</a
-			>
-			<a
-				href="https://wa.me/?text=Check+out+this+news!%20https://yourwebsite.com/news-post"
-				target="_blank"
-				>📱 WhatsApp</a
-			>
-		</div>
+		<footer>
+			<div class="footer-container">
+				<div class="footer-section links">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="/about">About Us</a></li>
+						<li><a href="/publications">Publications</a></li>
+						<li><a href="/projects">Projects</a></li>
+						<li><a href="/contact">Contact</a></li>
+					</ul>
+				</div>
+
+				<div class="footer-section contact">
+					<h3>Contact Us</h3>
+					<p>Plot 701C, Central Business District, Abuja, Nigeria</p>
+					<p>
+						Email: <a href="mailto:info@energy.gov.ng">info@energy.gov.ng</a>
+					</p>
+					<p>Phone: +234 9 123 4567</p>
+				</div>
+
+				<div class="footer-section newsletter">
+					<h3>Subscribe to Our Newsletter</h3>
+					<p>Get the latest updates on energy policies, projects, and news.</p>
+					<form action="/subscribe" method="POST">
+						<input
+							type="email"
+							name="email"
+							placeholder="Enter your email"
+							required
+						/>
+						<button type="submit">Subscribe</button>
+					</form>
+				</div>
+
+				<div class="footer-section about">
+					<h3>Follow us</h3>
+					<div class="social-icons">
+						<!-- Facebook -->
+						<a href="https://www.facebook.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-facebook-f"></i>
+							facebook
+						</a>
+						<!-- Twitter -->
+						<a href="https://www.twitter.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-twitter"></i>
+							twitter
+						</a>
+						<!-- Instagram -->
+						<a href="https://www.instagram.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-instagram"></i>
+							instagram
+						</a>
+						<!-- LinkedIn -->
+						<a href="https://www.linkedin.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-linkedin-in"></i>
+							linkedin
+						</a>
+						<a href="https://www.youtube.com" target="_blank">
+							<i style="margin-right: 10px" class="fab fa-youtube"></i>
+							youtube
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>
+					&copy; <span id="year"></span> Energy Commission of Nigeria. All
+					Rights Reserved.
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			document.getElementById("year").textContent = new Date().getFullYear();
+			ddocument.querySelectorAll(".tab-button").forEach((button) => {
+				button.addEventListener("click", () => {
+					document
+						.querySelectorAll(".tab-button")
+						.forEach((btn) => btn.classList.remove("active"));
+					document
+						.querySelectorAll(".tab-content")
+						.forEach((tab) => tab.classList.remove("active"));
+
+					button.classList.add("active");
+					document.getElementById(button.dataset.tab).classList.add("active");
+				});
+			});
+		</script>
 	</body>
 </html>
