@@ -42,8 +42,7 @@ const connection = mysql.createConnection({
 	// MY RENDER DETAILS STARTS FROM HERE...
 	host: "autorack.proxy.rlwy.net",
 	user: "root",
-	password:
-		"mysql://root:zZjnkqRiXnXFANbamWrwojaZjcGDhlOl@autorack.proxy.rlwy.net:19250/railway", // replace with the actual password
+	password: "zZjnkqRiXnXFANbamWrwojaZjcGDhlOl", // replace with the actual password
 	database: "railway",
 	port: 19250,
 	connectTimeout: 10000, // Adjust timeout if necessary
