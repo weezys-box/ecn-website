@@ -34,9 +34,10 @@ def scrape_news(pages_to_extract):
             content = "\n".join([p.get_text(strip=True) for p in news_soup.find_all("p")])
             published_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             
+            # Extract images
             images = news_soup.find_all("img")
             image_paths = []
-            for idx, img in enumerate(images[4:7]):
+            for idx, img in enumerate(images[4:10]):  # Extract up to 6 images
                 img_url = img["src"]
                 if not img_url.startswith("http"):
                     img_url = f"https://energy.gov.ng/{img_url}"
@@ -52,19 +53,35 @@ def scrape_news(pages_to_extract):
                         f.write(img_response.content)
                     image_paths.append(image_path)
             
-            image_1 = f"'{image_paths[0]}'" if len(image_paths) > 0 else 'NULL'
-            image_2 = f"'{image_paths[1]}'" if len(image_paths) > 1 else 'NULL'
-            image_3 = f"'{image_paths[2]}'" if len(image_paths) > 2 else 'NULL'
+            # Extract captions
+            caption_elements = news_soup.find_all("p", align="center")
+            captions = [caption.get_text(strip=True) for caption in caption_elements[:6]]  # Limit to 6 captions
             
+            # Ensure we have 6 values for SQL (set NULL where necessary)
+            while len(image_paths) < 6:
+                image_paths.append('NULL')
+            while len(captions) < 6:
+                captions.append('NULL')
+
+            # Prepare values
+            image_1, image_2, image_3, image_4, image_5, image_6 = [f"'{img}'" if img != 'NULL' else 'NULL' for img in image_paths]
+            caption_1, caption_2, caption_3, caption_4, caption_5, caption_6 = [f"'{cap}'" if cap != 'NULL' else 'NULL' for cap in captions]
+            
+            # Escape single quotes in text values
             title = title.replace("'", "''")
             content = content.replace("'", "''")
-            
+
+            # SQL statement with captions
             sql = (
-                f"INSERT INTO news (title, content, published_at, image_1, image_2, image_3) VALUES ("
-                f"'{title}', '{content}', '{published_at}', {image_1}, {image_2}, {image_3});"
+                f"INSERT INTO news (title, content, published_at, "
+                f"image_1, image_2, image_3, image_4, image_5, image_6, "
+                f"caption_1, caption_2, caption_3, caption_4, caption_5, caption_6) VALUES ("
+                f"'{title}', '{content}', '{published_at}', "
+                f"{image_1}, {image_2}, {image_3}, {image_4}, {image_5}, {image_6}, "
+                f"{caption_1}, {caption_2}, {caption_3}, {caption_4}, {caption_5}, {caption_6});"
             )
             
-            with open("news_inserts_final.sql", "a", encoding="utf-8") as sql_file:
+            with open("news_inserts_final_2.sql", "a", encoding="utf-8") as sql_file:
                 sql_file.write(sql + "\n")
             
             print(f"Scraped and saved: {title}")

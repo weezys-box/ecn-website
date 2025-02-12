@@ -160,6 +160,20 @@ app.get("/news/:id", (req, res) => {
 		if (err) throw err;
 		console.log(result);
 		let data = result[0];
+		let caption_1 = result[0].caption_1;
+		let caption_2 = result[0].caption_2;
+		let caption_3 = result[0].caption_3;
+		let caption_4 = result[0].caption_4;
+		let caption_5 = result[0].caption_5;
+		let caption_6 = result[0].caption_6;
+		let captions = {
+			caption_1,
+			caption_2,
+			caption_3,
+			caption_4,
+			caption_5,
+			caption_6,
+		};
 		let news_data = result[0].content.slice(0, -167);
 		console.log(news_data);
 		let dir_title = data.title;
@@ -215,6 +229,7 @@ app.get("/news/:id", (req, res) => {
 			formatDate,
 			formattedTitle,
 			formated_news,
+			captions,
 		});
 	});
 });
